@@ -12,7 +12,7 @@ Turn one real recording into the strongest honest version of itself. Preserve th
 A complete run normally leaves:
 
 - one publish-ready vertical MP4;
-- a JPEG cover that matches the video's first encoded frame;
+- an independently composed cover in the target platform's aspect ratio;
 - corrected, retimed subtitle files;
 - the editable project and the decisions needed to reproduce it;
 - visual, semantic, technical, and privacy QA evidence;
@@ -78,9 +78,9 @@ There is no required number of illustrations. If the take is already clear, subt
 
 Give each designed beat one primary visual job. When a new visual becomes primary, decide whether the previous one should leave, recede, or remain because the comparison still needs it. The A-roll is the continuity layer; stillness, negative space, and an unadorned stretch are legitimate choices. Do not import a “constant motion” or “effect at every boundary” rule into a video whose clarity and human presence benefit from restraint.
 
-Design for the phone-sized result, not the desktop preview. Keep one information hierarchy, protect the face and platform UI zones, use large mobile-readable display type, and maintain only one subtitle layer. Check actual rendered frames; element bounds alone will not reveal a title covering the speaker's eyes or numbers wrapping badly.
+Design for the phone-sized result, including the platform interface. For this creator's Douyin and Xiaohongshu talking-head videos, place captions in the lower-middle picture above the username, description, topic, and navigation overlays, rather than along the bottom edge. Check the encoded video with representative platform UI over it; see the caption placement guidance in [references/delivery.md](references/delivery.md). Keep one readable subtitle layer and protect the eyes and mouth.
 
-Treat the cover as its own editorial job: state the recognizable subject and the strongest supported reason to watch in very few, very large words. For cover hierarchy and real screenshots or event excerpts, use the relevant sections of [references/editorial.md](references/editorial.md). Their layouts and durations are choices, not required additions to a caption-only run.
+Compose the standalone cover for its actual destination: a 3:4 Xiaohongshu cover and a 9:16 video are separate canvases. When available, use `video-title-and-cover` for detailed cover work; otherwise follow the self-contained cover criteria in [references/editorial.md](references/editorial.md). Treat the cover as its own editorial job: state the recognizable subject and the strongest supported reason to watch in very few, very large words. For cover hierarchy and real screenshots or event excerpts, use the relevant sections of [references/editorial.md](references/editorial.md). Their layouts and durations are choices, not required additions to a caption-only run.
 
 ## Finish the media correctly
 
@@ -90,7 +90,7 @@ Read [references/delivery.md](references/delivery.md) before rendering or handin
 - explicitly choose the compatible camera audio track, control peaks before loudness normalization, and keep A/V starts and durations aligned;
 - strip location, device, timestamp, data-track, chapter, and other unintended metadata;
 - generate subtitles as short semantic units, correct names and mixed Chinese/English terms, retime them through the final edit, and inspect the rendered result;
-- ensure frame zero is the intended cover and export the matching JPEG;
+- verify the standalone cover's aspect ratio and actual upload path; handle frame zero separately according to the chosen opening;
 - verify decode, color, audio, captions, safe areas, face obstruction, first and last frames, black frames, and privacy on the final MP4.
 
 For time-dependent graphics, masks, moving PiP, or a face that changes position, inspect temporal clusters rather than relying on isolated hero frames: the settled state, adjacent frames around the action, and both sides of each affected boundary. When repairing a user-reported timecode, compare that same moment before the change, after the change, and in the final encode.

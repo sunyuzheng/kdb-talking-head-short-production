@@ -32,9 +32,13 @@ For a natural talking-head short, a useful starting point is a recognizable topi
 
 Use few words, large high-contrast type, and one hierarchy. Two short lines over a real source frame worked well in a user-approved caption-first production; a solid color band can separate a line from a busy background. Omit small badges, credential stacks, secondary slogans, and decorative copy when they dilute that point. Change the layout when the source frame, current brand, or platform crop calls for it.
 
+Select expressions before laying out type: compare frames from different moments, inspect promising candidates at full size and around nearby timestamps, and reject blinks, awkward mid-speech mouths, or blur. Preserve a natural, recognizable expression appropriate to the topic; text styling cannot rescue a poor face frame.
+
+Compose 3:4 Xiaohongshu covers on their own 1080×1440 canvas rather than scaling or cropping a finished 9:16 poster. For this creator, keep the main text around the middle or lower-middle with clear space below; do not fill the canvas with an oversized face and squeeze the title into the bottom strip. Starting with the whole title box ending around 80% of canvas height can help, but face clearance, copy, and actual feed appearance decide the layout. Change the source frame, subject scale, or text position when they conflict. Inspect the real 3:4 export and the file selected for publishing, not merely the filename or another aspect-ratio preview.
+
 Judge the exported cover at feed-thumbnail size. If the central idea becomes unreadable, shorten the copy or give it more space before adding effects. Font-size values alone do not establish legibility: in a 1080×1920 ASS composition using Noto Sans CJK SC, the approved run used roughly 190–210 for title sizes and 86 for captions after smaller values rendered too small. Those are renderer-specific starting points, not universal sizing rules. Check the actual glyphs, longest lines, and face clearance.
 
-When opening type can sit over the moving take, it can also supply frame zero without a static intro. Keep the person moving from the start unless an intentional hold serves this particular opening; see the first-frame guidance in [delivery.md](delivery.md).
+The platform cover and opening are separate deliverables. Keep the person moving from the start unless this particular opening calls for a cover frame or hold; see the first-frame guidance in [delivery.md](delivery.md).
 
 ## Preserve the speaker's proposition
 

@@ -12,6 +12,8 @@ This skill is a synthesis of repeated real productions. These sources explain wh
 - The public Short [提高自己天花板最快的方法：先试一次你“不敢”的事](https://youtube.com/shorts/o08HjmNSEBE) supplied the latest end-to-end production evidence. Its real rework included overly small mobile type, an opening card that covered the face, wrapped chapter counters, iPhone HDR handling, caption retiming, and encoded-file QC.
 - A caption-first mobile production was explicitly approved by the user in September 2026. It retained the coherent main take, used a large two-line cover over moving footage, and added a real post screenshot plus an approximately 30-second chronological event excerpt. Rework established the practical difference between nominal font size and rendered glyph size, missing portrait rotation metadata, silent setup time inside SRT cues, and neighboring words leaking across approximate cut points. These are transferable decisions and checks; the headline, layout, insert duration, source footage, and private project files are not bundled as a universal template.
 
+- September 2026 post-publication feedback identified low cover text, an overfilled portrait composition despite a 3:4 output, an unflattering frame choice, and captions placed near the platform's bottom information overlays. The user requested future skill improvements only, not revisions to the already published post. This informs independent cover composition, expression selection, lower-middle captions, and UI-aware QA; it is negative production feedback, not measured audience-performance evidence.
+
 ## Existing implementations and adjacent skills
 
 - [lizheng-video-production](https://github.com/sunyuzheng/lizheng-video-production) contains the existing KDB transcription, subtitle, filler-cut, title, and content-asset implementation. Use its `lizheng-video-editing` skill for broader interview, highlight, article, and channel-asset production.
@@ -25,6 +27,15 @@ This skill is a synthesis of repeated real productions. These sources explain wh
 - The upstream toolkit is distributed under PolyForm Noncommercial 1.0.0. No code, templates, motion cards, assets, or sound samples from that repository are copied into this skill; only the independently expressed editorial and QA principles above are cited and adapted.
 
 Use this skill for end-to-end production of one recorded vertical talking-head short and the publication approval boundary. Use the adjacent tools only when their narrower job actually applies.
+
+## Platform layout references
+
+Reviewed in September 2026 as visual examples, not current official layout specifications:
+
+- A [Douyin playback screenshot featuring Liu Run](https://imagepphcloud.thepaper.cn/pph/image/287/347/975.jpg), reproduced in a [2024 article](https://www.thepaper.cn/newsDetail_forward_26055470), shows bottom account/description overlays and a right-side action rail competing with low captions. It supports checking both regions, not a universal pixel boundary.
+- A [2025 Xiaohongshu portrait-cover grid](https://image.woshipm.com/2025/05/28/75dfd954-3b6d-11f0-8928-00163e09d72f.png), reproduced in [this analysis](https://www.woshipm.com/operate/6222392.html), shows compact portrait cards and separate note titles beneath them. Some examples do use low cover text; raising this creator's cover copy is a personal preference, not a platform-wide rule.
+
+Inspect the live target app when producing a new format or when its interface changes. Older examples explain the visual problem; they cannot certify today's safe area.
 
 ## Media boundary
 

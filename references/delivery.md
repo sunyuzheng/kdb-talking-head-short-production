@@ -73,12 +73,22 @@ When retiming through cuts, bind a cue's start and end to the same retained sour
 
 When adding an excerpt, lock its actual encoded duration before shifting subsequent main-take cues. Either map the excerpt's word times through its source intervals or align its assembled audio anew. Clip boundary cues to their own retained interval so text does not bleed into the next scene. Keep one source-to-final map for all inserts and returns.
 
+### Place captions above the platform interface
+
+For this creator's Douyin and Xiaohongshu talking-head shorts, use the lower-middle picture as the caption area. Bottom-aligned desktop subtitles are not a good default: usernames, descriptions, topics, music labels, navigation, and right-side action buttons occupy that space.
+
+For a 1080×1920 master, start by fitting the **whole visible caption box**, including the second line, stroke, and shadow, around 60–72% of frame height (roughly y=1150–1380). Initially leave the bottom quarter free of essential text and keep the right action rail clear. These are conservative editorial starting points for this creator, not official shared platform specifications. Actual app layout, device ratio, description length, product/activity cards, and subject position take precedence. Do not push captions over the eyes or mouth; adjust the composition or use a checked per-scene position when the default conflicts with the speaker or proof asset.
+
+Set layout against the final encoded canvas. In ASS, verify alignment and any per-cue `\pos` / `\move` overrides as well as `MarginV`; changing a style margin will not move a cue with an explicit position. Prefer fewer words per cue or a sensible line break over shrinking the type to squeeze around platform controls. Give screenshots, URLs, and CTA labels their own space so they do not compete with the raised captions.
+
+Before delivery, inspect the longest one- and two-line captions, a normal talking-head frame, and a screenshot/CTA scene inside a current target-platform playback view or a clearly labeled UI approximation. Include the username, a representative multi-line description, topic/activity labels, and right-side actions; a blank phone bezel is not this check. Keep text readable in the normal collapsed-description state, and inspect any other state central to the intended placement. Recheck the current UI when the platform or format changes; the expanded comments or description panel may intentionally cover the picture and cannot be solved by a universal safe rectangle. Keep the UI simulation out of the delivered video.
+
 Inspect captions in the encoded MP4 at:
 
 - cut boundaries;
 - full-screen graphics and PiP scenes;
 - the widest and longest lines;
-- the bottom platform-safe area;
+- the lower-middle caption area with target-platform UI overlaid;
 - the first and last cues.
 
 ## Verify time-dependent design in time
@@ -95,11 +105,11 @@ The goal is not maximum frame extraction. Choose samples that can reveal the fai
 
 If a beat sheet or storyboard exists, compare it with the encoded video as well as inspecting the pixels: important proof and explanatory roles should not have silently disappeared, and any added visual should have a defensible role rather than being unplanned decoration.
 
-## Make frame zero the cover
+## Separate the platform cover from the opening
 
-The cover shown in a file browser or uploaded separately should match the first encoded frame of the final MP4. It may use a strong source frame from later in the recording, but the transition into the body must feel intentional.
+A 3:4 Xiaohongshu cover is a standalone image, while the portrait video can remain 9:16. Recompose the image for its destination and label each output by platform or aspect ratio. Verify the dimensions and the exact file referenced by the preview and upload form; generating a correct 3:4 file does not help if the default cover path still selects 9:16.
 
-Do not assume a generated JPEG and the actual first frame are identical. Extract frame zero from the final MP4 and compare them. For a natural take, prefer cover type over live footage so the opening moves immediately. A separate still or brief hold remains available when it has a specific editorial purpose; matching the cover is not a reason to freeze the first several seconds.
+Keep a natural take moving immediately by default. A cover frame or hold is a separate editorial choice, not a consequence of needing a thumbnail. If the user requests a one-frame cover, insert exactly one encoded frame using the video's own aspect ratio and verify frame zero and frame one. Otherwise do not force the standalone cover into the video. Inspect the final opening for unintended frozen or black frames.
 
 ## Remove private and incompatible material
 
@@ -121,8 +131,8 @@ Before handoff or upload, verify the final file itself:
 3. Display is 9:16, typically 1080×1920 at a stable delivery frame rate, H.264 plus AAC 48 kHz, and SDR Rec.709 when intended.
 4. No accidental black opening, black tail, freeze, stale rotation, HDR side data, extra audio, or data streams remain.
 5. Loudness, peaks, channel balance, and cut joins are acceptable.
-6. Frame zero and cover match; title is readable at phone size.
-7. Captions are correct, retimed, readable, and never stuck or duplicated.
+6. The standalone cover has the destination ratio, a natural expression, a balanced feed-size layout, and the correct preview/upload file; frame zero follows the chosen opening without an unintended hold.
+7. Captions are correct, retimed, readable above the target platform UI, and never stuck or duplicated; long and two-line cues have been checked in context.
 8. Graphics explain what they claim to explain, do not hide the face unintentionally, and stay inside platform-safe zones.
 9. Sensitive metadata and visible private information are absent.
 10. Representative opening, middle, graphic transitions, and ending frames have been visually inspected; time-dependent risks have adjacent-frame or short-interval evidence.
