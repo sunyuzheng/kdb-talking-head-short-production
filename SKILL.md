@@ -9,7 +9,11 @@ Turn one real recording into the strongest honest version of itself. Preserve th
 
 ## Target result
 
-A complete run normally leaves:
+The default user-facing handoff is the finished MP4, corrected subtitle file, and a platform cover when the task calls for one. Keep necessary edit decisions, timing maps, and QA evidence in the existing internal work directory.
+
+For this creator, “剪一下 / 剪好 / 做出来” does not request a review website, an edit-comparison page, a localhost preview server, a separate cut-by-cut report, or a derivative article/community post. Create those only when explicitly requested. If asked what was cut, start with a concise explanation and source timecodes; do not infer a website from that request. A one-off request for a post or comparison page does not make it part of later runs.
+
+Depending on the requested scope, production may retain:
 
 - one publish-ready vertical MP4;
 - an independently composed cover in the target platform's aspect ratio;
@@ -95,7 +99,7 @@ Read [references/delivery.md](references/delivery.md) before rendering or handin
 
 For time-dependent graphics, masks, moving PiP, or a face that changes position, inspect temporal clusters rather than relying on isolated hero frames: the settled state, adjacent frames around the action, and both sides of each affected boundary. When repairing a user-reported timecode, compare that same moment before the change, after the change, and in the final encode.
 
-Do not deliver merely because a renderer exited successfully. Share a concrete preview when graphics, cover, crop, or typography materially change the viewer-visible hierarchy, and incorporate feedback. When the user delegates end-to-end local production, continue through rendering and encoded-file inspection; a preview is not automatically a new approval gate. Honor an explicit request to stop for design review, and keep platform publication approval separate.
+Do not deliver merely because a renderer exited successfully. When graphics, cover, crop, or typography materially change the viewer-visible hierarchy, show the encoded video or representative frames directly in an existing viewer and incorporate feedback. This preview does not require a new webpage or server. When the user delegates end-to-end local production, continue through rendering and encoded-file inspection; a preview is not automatically a new approval gate. Honor an explicit request to stop for design review, and keep platform publication approval separate.
 
 ## Give useful next-time feedback
 
@@ -109,7 +113,7 @@ After an approved upload, verify the actual platform result: processing state, v
 
 ## Keep the handoff legible
 
-Project structure may adapt to the owner, but a durable run should make these truths easy to find:
+Use the owning project’s existing layout. Keep only the internal records needed to reproduce and verify this edit; the roles below are not a requirement to create a separate file, subfolder, report, or user-facing deliverable for each item:
 
 - source provenance and technical inspection;
 - raw and corrected transcript;

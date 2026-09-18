@@ -143,22 +143,18 @@ If the intended platform rejects the final duration, aspect, codec, or classific
 
 ## Adaptable artifact contract
 
-Names may follow the owning project, but keep the roles recognizable:
+Default to handing off the finished video and requested media assets directly. Use the video file, an existing player, or a few relevant frames for inspection; do not build a review/comparison website or start a local web server unless the user explicitly asks for that form. Detailed cut reports and derivative posts are also opt-in; necessary timeline and QA evidence stays internal.
+
+Reuse the owning project’s layout. A simple layout is sufficient:
 
 ```text
 project/
-  source/                 # immutable original or provenance record
-  work/
-    inspect/              # technical report and contact sheets
-    transcript/           # raw alignment and corrected transcript
-    process/              # content map, cuts, captions, timeline map
-  hf-project/             # optional editable HyperFrames composition
-  output/
-    *.ready-to-upload.mp4
-    *.cover.jpg
-    *.srt
-    QA.md
-    NEXT_TIME.md          # optional
+  *.ready-to-upload.mp4
+  *.cover.jpg              # when required by the current task
+  *.srt
+  work/                    # reuse an existing 工程/ or equivalent
+                           # necessary sources/provenance, alignment,
+                           # edit map, render recipe, and compact QA
 ```
 
 Do not duplicate multi-gigabyte media merely to satisfy this shape. Keep a single owning copy or a clearly documented, verified derivative.
