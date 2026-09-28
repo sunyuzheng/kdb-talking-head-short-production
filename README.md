@@ -20,6 +20,10 @@
 
 它不负责多人访谈、高光集锦、文章、长视频标题等广义内容资产。那些任务更适合 [`lizheng-video-editing`](https://github.com/sunyuzheng/lizheng-video-production)。如果口播底片已经完全锁定，只剩 [HyperFrames](https://github.com/heygen-com/hyperframes) 图形包装，并且你的环境已经安装 `talking-head-recut`，可以直接使用后者。
 
+## 本人的默认分发范围
+
+新短视频说“按流程做好”时，默认准备 YouTube Shorts、Instagram Reels 和 Google Drive。两处社交平台分别核对现有队列，沿用每天美西时间 17:00；具体发布信息仍在成片完成后统一确认。小红书只在本批明确要求时上传，不沿用过去某一期的小红书授权。账号、云盘目录和各期回执留在视频工作区。
+
 ## 一条视频会经历什么
 
 Skill 不把流程写成固定 SOP，但有几条依赖关系不能颠倒：

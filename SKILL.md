@@ -24,6 +24,12 @@ Depending on the requested scope, production may retain:
 
 The minimum success condition is not “effects were added.” A cold viewer should understand what the video is about, what remains worth watching for, and where that promise is paid off. The finished video should still sound like the person who recorded it.
 
+## Creator distribution default
+
+For this creator's new short-video requests, including “按流程做好”, prepare YouTube Shorts, Instagram Reels, and Google Drive together. Xiaohongshu is opt-in: do not upload or schedule there unless the user explicitly requests it for the current batch. A past Xiaohongshu release is not standing permission for later videos.
+
+Use the established accounts and Drive archive from the owning project's current records. Read the live YouTube and Instagram queues before choosing each next daily 17:00 America/Los_Angeles slot; do not infer one platform's queue from the other. Prepare platform-appropriate captions, covers, and relevant links or matching swag products. This default defines destinations, not approval of unseen payloads: retain the publication approval boundary below, and honor a narrower request or an explicit scheduling exception.
+
 ## Boundaries
 
 - Treat source media as read-only. Work in a project directory and keep provenance.
