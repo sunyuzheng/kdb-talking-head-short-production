@@ -28,7 +28,7 @@ The minimum success condition is not “effects were added.” A cold viewer sho
 
 For this creator's new short-video requests, including “按流程做好”, prepare YouTube Shorts, Instagram Reels, and Google Drive together. Xiaohongshu is opt-in: do not upload or schedule there unless the user explicitly requests it for the current batch. A past Xiaohongshu release is not standing permission for later videos.
 
-Use the established accounts and Drive archive from the owning project's current records. Read the live YouTube and Instagram queues before choosing each next daily 17:00 America/Los_Angeles slot; do not infer one platform's queue from the other. Prepare platform-appropriate captions, covers, and relevant links or matching swag products. This default defines destinations, not approval of unseen payloads: retain the publication approval boundary below, and honor a narrower request or an explicit scheduling exception.
+Use the established accounts and Drive archive from the owning project's current records. Read the live YouTube and Instagram queues before choosing each next daily 17:00 America/Los_Angeles slot; do not infer one platform's queue from the other. Prepare platform-appropriate captions, covers, and relevant links or matching swag products. On 2026-09-28, the creator explicitly authorized future routine shorts to be uploaded and scheduled to these established destinations without asking for per-video confirmation. For this creator, finish the media and local publication manifest, verify the accounts, files, queue and settings, then execute and report actual results. Honor a narrower request or scheduling exception. This standing authorization does not add Xiaohongshu, new accounts, new audiences or unrelated external actions.
 
 ## Boundaries
 
@@ -38,7 +38,7 @@ Use the established accounts and Drive archive from the owning project's current
 - Default to local Chinese ASR and local media processing. Do not require an API key. Keep the ASR implementation replaceable.
 - Remove private metadata and avoid exposing sensitive screen content. Never publish source camera files directly.
 - Do not recommend pickup lines or another take in this one-pass flow. If useful, end with concise advice for how the speaker could improve the next recording.
-- Uploading or publishing is a separate external action. Before it, show the exact payload, destination, audience, visibility, and material settings; obtain approval for that payload.
+- Uploading or publishing is an external action requiring user authorization. Apply the creator-specific standing authorization above when it covers the task; do not ask again for ordinary titles, descriptions, covers or established queue slots within that workflow. Outside authorized scope, prepare the exact payload, destination, audience, visibility and material settings before asking.
 
 ## Form an editorial view first
 
@@ -105,15 +105,15 @@ Read [references/delivery.md](references/delivery.md) before rendering or handin
 
 For time-dependent graphics, masks, moving PiP, or a face that changes position, inspect temporal clusters rather than relying on isolated hero frames: the settled state, adjacent frames around the action, and both sides of each affected boundary. When repairing a user-reported timecode, compare that same moment before the change, after the change, and in the final encode.
 
-Do not deliver merely because a renderer exited successfully. When graphics, cover, crop, or typography materially change the viewer-visible hierarchy, show the encoded video or representative frames directly in an existing viewer and incorporate feedback. This preview does not require a new webpage or server. When the user delegates end-to-end local production, continue through rendering and encoded-file inspection; a preview is not automatically a new approval gate. Honor an explicit request to stop for design review, and keep platform publication approval separate.
+Do not deliver merely because a renderer exited successfully. When graphics, cover, crop, or typography materially change the viewer-visible hierarchy, show the encoded video or representative frames directly in an existing viewer and incorporate feedback. This preview does not require a new webpage or server. When the user delegates end-to-end local production, continue through rendering and encoded-file inspection; a preview is not automatically a new approval gate. Honor an explicit request to stop for design review, and verify that platform publication is covered by the standing authorization or a specific approval.
 
 ## Give useful next-time feedback
 
 When it adds value, end with one to three concrete suggestions derived from this recording. Phrase them as improvements for the next time, not defects the user must repair now. Prefer high-leverage changes to the opening, structure, example, or conclusion over generic delivery coaching. Keep the advice short enough to become part of the video or its handoff.
 
-## Publish only through an approval gate
+## Publish within the authorized scope
 
-If the user asks for YouTube Shorts publication, read [references/youtube-shorts.md](references/youtube-shorts.md). Other platforms follow the same boundary: prepare and verify locally first, then present the exact post payload and destination. Approval applies only to what was shown; a material change to title, description, related video, visibility, audience, subtitle track, or destination requires fresh approval.
+If the user asks for YouTube Shorts publication, read [references/youtube-shorts.md](references/youtube-shorts.md). Other platforms follow the same boundary: prepare and verify locally first, then check authorization at execution. For this creator, the standing authorization covers routine YouTube Shorts, Instagram Reels and Google Drive delivery, including editorial titles, descriptions, covers and daily queue slots. Do not turn that workflow back into a recurring approval question. For users without standing authorization, present the exact post payload and destination for approval; material changes outside what is authorized require fresh approval.
 
 After an approved upload, verify the actual platform result: processing state, visibility, public or private URL as applicable, subtitle language, related video, checks, and the published media—not merely the presence of an upload receipt.
 

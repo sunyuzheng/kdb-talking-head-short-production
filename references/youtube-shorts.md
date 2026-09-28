@@ -2,11 +2,11 @@
 
 Read this only when the user asks to upload, schedule, or publish to YouTube. Platform interfaces and limits change, so inspect the current YouTube Studio state rather than relying on fixed button positions.
 
-## Approval payload
+## Authorization and publication manifest
 
-Before asking for approval, use read-only inspection of the authenticated Studio session to confirm the active channel and channel ID, current upload or Shorts eligibility signals, and whether the intended Related Video is available to that channel. This inspection must not select a file, create an upload, or change channel state.
+Before upload, use read-only inspection of the authenticated Studio session to confirm the active channel and channel ID, current upload or Shorts eligibility signals, and whether the intended Related Video is available to that channel. This inspection must not select a file, create an upload, or change channel state.
 
-Before any upload that changes the user's channel, present and obtain approval for:
+For this creator, the 2026-09-28 standing authorization covers routine short-video uploads and scheduling to the established YouTube channel, Instagram account and Google Drive archive. Do not ask for per-video confirmation when the task remains within that scope. Prepare and verify a local publication manifest before any upload. For a user without standing authorization, present that manifest and obtain approval. It includes:
 
 - channel name and channel ID;
 - exact local video path and the final file identity or checksum;
@@ -19,7 +19,7 @@ Before any upload that changes the user's channel, present and obtain approval f
 - related video exact title and video ID, or “none”;
 - thumbnail or first-frame strategy.
 
-Approval is scoped to this payload. If a material field changes after YouTube validation or user feedback, show the revised value and get fresh approval before publishing.
+Keep the manifest accurate after platform validation or editorial changes. A specific approval is scoped to its payload; standing authorization covers ordinary editorial and scheduling choices within its established workflow. Ask only when the action materially exceeds the applicable authorization.
 
 If the intended file is not currently eligible for the requested Shorts treatment, do not shorten or restructure it without approval. Present the platform evidence and the available alternatives. If the Related Video control or exact target is unavailable, put `none` in the payload or ask the user to choose another exact video; never substitute a similar title.
 
@@ -27,7 +27,7 @@ If the intended file is not currently eligible for the requested Shorts treatmen
 
 Use the user's authenticated normal browser session through the supported browser-control skill. Do not extract cookies or secrets. If login, CAPTCHA, two-factor authentication, or an account chooser requires the user, pause at that point.
 
-After approval:
+After confirming that user authorization covers the upload:
 
 1. Open YouTube Studio on the confirmed channel and select the exact final MP4.
 2. Wait for the upload and media analysis far enough to validate duration, aspect, and processing state.
@@ -54,4 +54,4 @@ Record:
 - title, visibility or schedule, audience, related video ID, and subtitle language;
 - check results and any unresolved processing state.
 
-YouTube publication does not authorize cross-posting to another platform. Each external destination gets its own reviewed payload and approval.
+YouTube publication alone does not authorize another platform. This creator has separately authorized routine YouTube, Instagram and Google Drive delivery; Xiaohongshu remains opt-in for each batch. Record the applicable authorization and exact payload for each destination without asking again when it is already covered.
