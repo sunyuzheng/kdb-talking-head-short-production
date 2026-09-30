@@ -1,6 +1,6 @@
 ---
 name: kdb-talking-head-short-production
-description: Turn one recorded single-speaker mobile video into a coherent, publish-ready vertical short through local transcription, content-aware editing, readable captions, selective explanatory graphics, technical and privacy cleanup, and optional explicitly approved platform publishing. Use when the user wants one raw talking-head take made ready to post. Use lizheng-video-editing instead for broader interview, highlight, article, and channel-asset workflows; use talking-head-recut only when the spoken edit is already locked and the remaining job is graphic packaging.
+description: 把已录好的单人手机口播剪成可发布竖屏短视频，完成字幕、必要图解与成片核验；不用于多人访谈或仅写脚本。
 ---
 
 # KDB Talking-Head Short Production
@@ -92,6 +92,8 @@ Design for the phone-sized result, including the platform interface. For this cr
 
 Compose the standalone cover for its actual destination: a 3:4 Xiaohongshu cover and a 9:16 video are separate canvases. When available, use `video-title-and-cover` for detailed cover work; otherwise follow the self-contained cover criteria in [references/editorial.md](references/editorial.md). Treat the cover as its own editorial job: state the recognizable subject and the strongest supported reason to watch in very few, very large words. For cover hierarchy and real screenshots or event excerpts, use the relevant sections of [references/editorial.md](references/editorial.md). Their layouts and durations are choices, not required additions to a caption-only run.
 
+When the recording names a book or the user asks for a relevant product recommendation, read [references/product-recommendations.md](references/product-recommendations.md). Prepare the appropriate cover asset, short CTA, and platform attachment handoff without rewriting the video's argument or adding a recommendation to unrelated videos. Keep account-specific product records with their private owner.
+
 ## Finish the media correctly
 
 Read [references/delivery.md](references/delivery.md) before rendering or handing off. In particular:
@@ -115,6 +117,8 @@ When it adds value, end with one to three concrete suggestions derived from this
 
 If the user asks for YouTube Shorts publication, read [references/youtube-shorts.md](references/youtube-shorts.md). Other platforms follow the same boundary: prepare and verify locally first, then check authorization at execution. For this creator, the standing authorization covers routine YouTube Shorts, Instagram Reels and Google Drive delivery, including editorial titles, descriptions, covers and daily queue slots. Do not turn that workflow back into a recurring approval question. For users without standing authorization, present the exact post payload and destination for approval; material changes outside what is authorized require fresh approval.
 
+For a video recommending a purchasable item, include its actual native product card and seller in that publication payload. Use the attachment checks in [references/product-recommendations.md](references/product-recommendations.md); a saved selection or showcase entry alone does not prove that the video carries a working purchase path.
+
 After an approved upload, verify the actual platform result: processing state, visibility, public or private URL as applicable, subtitle language, related video, checks, and the published media—not merely the presence of an upload receipt.
 
 ## Keep the handoff legible
@@ -130,5 +134,6 @@ Use the owning project’s existing layout. Keep only the internal records neede
 - final MP4, cover JPEG, and subtitle file;
 - QA report and optional next-time note;
 - publication payload and returned URL when publication occurred.
+- a product-to-platform mapping and attachment status when a recommendation is relevant.
 
 For the cases and source documents that shaped this skill, read [references/sources.md](references/sources.md). They are provenance and examples, not templates that override the current video.

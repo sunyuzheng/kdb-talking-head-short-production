@@ -158,3 +158,5 @@ project/
 ```
 
 Do not duplicate multi-gigabyte media merely to satisfy this shape. Keep a single owning copy or a clearly documented, verified derivative.
+
+When a book or product recommendation belongs in the video, add the asset/CTA choice and platform product-card mapping described in [product-recommendations.md](product-recommendations.md). A finished local video and a verified purchase attachment are separate delivery states; record each accurately.
