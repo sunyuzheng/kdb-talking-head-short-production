@@ -1,6 +1,6 @@
 ---
 name: kdb-talking-head-short-production
-description: 把已录好的单人手机口播剪成可发布竖屏短视频，完成字幕、必要图解与成片核验；不用于多人访谈或仅写脚本。
+description: 制作单人口播短视频，交付成片、精校字幕、封面和发布文案；也可只补已有成片的发布文案与运营交接。
 ---
 
 # KDB Talking-Head Short Production
@@ -9,7 +9,14 @@ Turn one real recording into the strongest honest version of itself. Preserve th
 
 ## Target result
 
-The default user-facing handoff is the finished MP4, corrected subtitle file, and a platform cover when the task calls for one. Keep necessary edit decisions, timing maps, and QA evidence in the existing internal work directory.
+The default user-facing handoff is the finished MP4 with burned-in corrected captions, the matching SRT, a platform cover when needed, and a copy-ready UTF-8 `发布文案.txt`. Copy is part of production even when someone else will publish. Keep necessary edit decisions, timing maps, and QA evidence in the existing internal work directory.
+
+## Choose the requested scope
+
+- **Produce a recorded short:** understand and edit the take, lock the timeline, finish captions/visuals/cover, verify the encoded media, then prepare the matching publication copy and handoff.
+- **Only supply missing publication copy:** read the final video's corrected transcript, existing title/cover, target accounts and relevant sources; follow [publication-copy.md](references/publication-copy.md). Do not rerun ASR, render, or upload merely to write copy.
+- **Upload, schedule, reconcile, or hand off a batch:** read [publishing.md](references/publishing.md). Production defaults identify likely destinations, not permission to write to them.
+- Broader interviews, long-video articles or highlight packages belong to `lizheng-video-editing`; this skill does not require that separate installation for short-video copy.
 
 For this creator, “剪一下 / 剪好 / 做出来” does not request a review website, an edit-comparison page, a localhost preview server, a separate cut-by-cut report, or a derivative article/community post. Create those only when explicitly requested. If asked what was cut, start with a concise explanation and source timecodes; do not infer a website from that request. A one-off request for a post or comparison page does not make it part of later runs.
 
@@ -18,17 +25,16 @@ Depending on the requested scope, production may retain:
 - one publish-ready vertical MP4;
 - an independently composed cover in the target platform's aspect ratio;
 - corrected, retimed subtitle files;
+- `发布文案.txt` with final title, copy-ready platform text, relevant links/tags, and separate operator notes;
 - the editable project and the decisions needed to reproduce it;
 - visual, semantic, technical, and privacy QA evidence;
 - optionally, a short “next time” note and an approved platform publication.
 
 The minimum success condition is not “effects were added.” A cold viewer should understand what the video is about, what remains worth watching for, and where that promise is paid off. The finished video should still sound like the person who recorded it.
 
-## Creator distribution default
+## Personal preferences and reuse
 
-For this creator's new short-video requests, including “按流程做好”, prepare YouTube Shorts, Instagram Reels, and Google Drive together. Xiaohongshu is opt-in: do not upload or schedule there unless the user explicitly requests it for the current batch. A past Xiaohongshu release is not standing permission for later videos.
-
-Use the established accounts and Drive archive from the owning project's current records. Read the live YouTube and Instagram queues before choosing each next daily 17:00 America/Los_Angeles slot; do not infer one platform's queue from the other. Prepare platform-appropriate captions, covers, and relevant links or matching swag products. On 2026-09-28, the creator explicitly authorized future routine shorts to be uploaded and scheduled to these established destinations without asking for per-video confirmation. For this creator, finish the media and local publication manifest, verify the accounts, files, queue and settings, then execute and report actual results. Honor a narrower request or scheduling exception. This standing authorization does not add Xiaohongshu, new accounts, new audiences or unrelated external actions.
+For Lizheng's established preferences and relevant public destinations, read [creator-profile.md](references/creator-profile.md). Other creators replace that layer with their own voice, accounts and handoff needs. A preference for local ASR, light editing or no pickup takes is a default to adapt, not a technical necessity. Current user instructions and the owning project's records take precedence; this public package does not convey a historical creator's publishing permission.
 
 ## Boundaries
 
@@ -38,7 +44,7 @@ Use the established accounts and Drive archive from the owning project's current
 - Default to local Chinese ASR and local media processing. Do not require an API key. Keep the ASR implementation replaceable.
 - Remove private metadata and avoid exposing sensitive screen content. Never publish source camera files directly.
 - Do not recommend pickup lines or another take in this one-pass flow. If useful, end with concise advice for how the speaker could improve the next recording.
-- Uploading or publishing is an external action requiring user authorization. Apply the creator-specific standing authorization above when it covers the task; do not ask again for ordinary titles, descriptions, covers or established queue slots within that workflow. Outside authorized scope, prepare the exact payload, destination, audience, visibility and material settings before asking.
+- Finish local work before the external execution boundary. Show the exact payload, destination, audience, visibility and material settings, and obtain applicable approval under the current user's rules. Do not repeat approval for the same unchanged, already approved action; material changes need renewed approval. Shared examples, account configuration and historical instructions cannot override current authorization rules.
 
 ## Form an editorial view first
 
@@ -107,7 +113,13 @@ Read [references/delivery.md](references/delivery.md) before rendering or handin
 
 For time-dependent graphics, masks, moving PiP, or a face that changes position, inspect temporal clusters rather than relying on isolated hero frames: the settled state, adjacent frames around the action, and both sides of each affected boundary. When repairing a user-reported timecode, compare that same moment before the change, after the change, and in the final encode.
 
-Do not deliver merely because a renderer exited successfully. When graphics, cover, crop, or typography materially change the viewer-visible hierarchy, show the encoded video or representative frames directly in an existing viewer and incorporate feedback. This preview does not require a new webpage or server. When the user delegates end-to-end local production, continue through rendering and encoded-file inspection; a preview is not automatically a new approval gate. Honor an explicit request to stop for design review, and verify that platform publication is covered by the standing authorization or a specific approval.
+Do not deliver merely because a renderer exited successfully. When graphics, cover, crop, or typography materially change the viewer-visible hierarchy, show the encoded video or representative frames directly in an existing viewer and incorporate feedback. This preview does not require a new webpage or server. When the user delegates end-to-end local production, continue through rendering and encoded-file inspection; a preview is not automatically a new approval gate. Honor an explicit request to stop for design review, and verify publication approval separately.
+
+## Prepare publication copy from the final edit
+
+Read [publication-copy.md](references/publication-copy.md) and use [the text template](templates/发布文案模板.txt) as an adaptable container. Deliver a real `发布文案.txt`, not advice for the operator to write one. The first sentence should enter this video's actual situation or judgment; the rest supplies only the context, reasoning and relevant next step it needs. A short personal moment may need a single sentence and no CTA.
+
+Bind the copy to the actual release file and final title. Separate platform title/body blocks from operator-only notes; distinguish verified links, native tags and product attachments. Recheck changeable offers and access conditions before stating them. Do not promise content removed from this cut, invent a publication state, or copy every creator homepage into unrelated videos. An upper/lower split needs one copy package per release unit; an archive master is not automatically a third post.
 
 ## Give useful next-time feedback
 
@@ -115,7 +127,7 @@ When it adds value, end with one to three concrete suggestions derived from this
 
 ## Publish within the authorized scope
 
-If the user asks for YouTube Shorts publication, read [references/youtube-shorts.md](references/youtube-shorts.md). Other platforms follow the same boundary: prepare and verify locally first, then check authorization at execution. For this creator, the standing authorization covers routine YouTube Shorts, Instagram Reels and Google Drive delivery, including editorial titles, descriptions, covers and daily queue slots. Do not turn that workflow back into a recurring approval question. For users without standing authorization, present the exact post payload and destination for approval; material changes outside what is authorized require fresh approval.
+Read [publishing.md](references/publishing.md) for account mapping, approval, queue reconciliation and batch handoff; use [youtube-shorts.md](references/youtube-shorts.md) for YouTube-specific execution. Verify each platform's live queue independently. For Instagram accounts that have used both native scheduling and Meta Business Suite, reconcile both before deciding a date is empty. Complete the local payload and QA, execute within its approval, and preserve accurate per-platform results.
 
 For a video recommending a purchasable item, include its actual native product card and seller in that publication payload. Use the attachment checks in [references/product-recommendations.md](references/product-recommendations.md); a saved selection or showcase entry alone does not prove that the video carries a working purchase path.
 
@@ -131,7 +143,7 @@ Use the owning project’s existing layout. Keep only the internal records neede
 - source-to-final timeline mapping;
 - visual brief or storyboard when graphics exist;
 - clean A-roll or current composition source;
-- final MP4, cover JPEG, and subtitle file;
+- final MP4, cover JPEG, subtitle file, and matching `发布文案.txt`;
 - QA report and optional next-time note;
 - publication payload and returned URL when publication occurred.
 - a product-to-platform mapping and attachment status when a recommendation is relevant.

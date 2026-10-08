@@ -37,6 +37,14 @@ Reviewed in September 2026 as visual examples, not current official layout speci
 
 Inspect the live target app when producing a new format or when its interface changes. Older examples explain the visual problem; they cannot certify today's safe area.
 
+## Publication-copy and operator handoff update (2026-10-08)
+
+An editor receiving recent shorts found `发布文案.txt` in the delivery folders but could not reproduce it from the previously shared skill. Earlier examples ranged from a single title and short body to complete YouTube, Instagram and Xiaohongshu blocks. The transferable fix is an explicit production stage, a copy-only mode, a plain-text template, and separate operator notes. Actual episode files, private publication manifests and account IDs remain outside this repository.
+
+Operator questions about missing copy, main versus clip accounts, and separately publishable parts versus a complete master inform the handoff contract. An October queue reconciliation also found Instagram-native and Meta Business Suite schedules displayed separately; this is why an apparent gap must be checked across the account's scheduling entry points, not treated as proof of an empty slot. These are workflow observations, not engagement claims or permanent platform specifications.
+
+The pre-existing local editorial update from user-supplied three-column cover grids is retained: a natural portrait, a short recognizable topic and a concrete related judgment, inspected at feed size. It is a design direction, not a fixed layout or evidence of improved reach.
+
 ## Media boundary
 
 No source MOV, rendered MP4, photographs, private transcripts, API credentials, browser state, platform cookies, or owner-local absolute paths belong in this public repository.

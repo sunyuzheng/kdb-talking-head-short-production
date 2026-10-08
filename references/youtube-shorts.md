@@ -6,7 +6,7 @@ Read this only when the user asks to upload, schedule, or publish to YouTube. Pl
 
 Before upload, use read-only inspection of the authenticated Studio session to confirm the active channel and channel ID, current upload or Shorts eligibility signals, and whether the intended Related Video is available to that channel. This inspection must not select a file, create an upload, or change channel state.
 
-For this creator, the 2026-09-28 standing authorization covers routine short-video uploads and scheduling to the established YouTube channel, Instagram account and Google Drive archive. Do not ask for per-video confirmation when the task remains within that scope. Prepare and verify a local publication manifest before any upload. For a user without standing authorization, present that manifest and obtain approval. It includes:
+Prepare final copy under [publication-copy.md](publication-copy.md), then follow the current approval boundary in [publishing.md](publishing.md). Present and verify a local publication manifest before upload; a historical creator authorization embedded in a shared skill is not permission for a new execution. The manifest includes:
 
 - channel name and channel ID;
 - exact local video path and the final file identity or checksum;
@@ -19,7 +19,7 @@ For this creator, the 2026-09-28 standing authorization covers routine short-vid
 - related video exact title and video ID, or “none”;
 - thumbnail or first-frame strategy.
 
-Keep the manifest accurate after platform validation or editorial changes. A specific approval is scoped to its payload; standing authorization covers ordinary editorial and scheduling choices within its established workflow. Ask only when the action materially exceeds the applicable authorization.
+Keep the manifest accurate after platform validation or editorial changes. Approval is scoped to its payload and destination; do not ask again for an unchanged approved action, and obtain renewed approval for material changes.
 
 If the intended file is not currently eligible for the requested Shorts treatment, do not shorten or restructure it without approval. Present the platform evidence and the available alternatives. If the Related Video control or exact target is unavailable, put `none` in the payload or ask the user to choose another exact video; never substitute a similar title.
 
@@ -54,4 +54,4 @@ Record:
 - title, visibility or schedule, audience, related video ID, and subtitle language;
 - check results and any unresolved processing state.
 
-YouTube publication alone does not authorize another platform. This creator has separately authorized routine YouTube, Instagram and Google Drive delivery; Xiaohongshu remains opt-in for each batch. Record the applicable authorization and exact payload for each destination without asking again when it is already covered.
+YouTube publication alone does not authorize another platform. Use the current creator profile to prepare destinations and record the actual approval and exact payload for each. Xiaohongshu is opt-in for Lizheng's batches; another creator sets their own scope.

@@ -1,4 +1,4 @@
 interface:
   display_name: "KDB Talking-Head Short Production"
-  short_description: "Turn one raw talking-head take into a publish-ready Short"
-  default_prompt: "Use $kdb-talking-head-short-production to turn this raw talking-head video into a coherent, publish-ready vertical short."
+  short_description: "剪好单人口播，交付精校字幕、封面与可直接用的发布文案"
+  default_prompt: "Use $kdb-talking-head-short-production to prepare this talking-head short, including corrected burned-in captions, cover and 发布文案.txt. If the video is already finished and I only need publication copy, work from the final transcript without re-editing or uploading."

@@ -143,7 +143,7 @@ If the intended platform rejects the final duration, aspect, codec, or classific
 
 ## Adaptable artifact contract
 
-Default to handing off the finished video and requested media assets directly. Use the video file, an existing player, or a few relevant frames for inspection; do not build a review/comparison website or start a local web server unless the user explicitly asks for that form. Detailed cut reports and derivative posts are also opt-in; necessary timeline and QA evidence stays internal.
+Default to handing off the finished video, matching corrected SRT, required cover and `发布文案.txt` directly. The copy is prepared under [publication-copy.md](publication-copy.md), even when a human operator will publish. Use the video file, an existing player, or a few relevant frames for inspection; do not build a review/comparison website or start a local web server unless the user explicitly asks for that form. Detailed cut reports and derivative posts are also opt-in; necessary timeline and QA evidence stays internal.
 
 Reuse the owning project’s layout. A simple layout is sufficient:
 
@@ -152,11 +152,14 @@ project/
   *.ready-to-upload.mp4
   *.cover.jpg              # when required by the current task
   *.srt
+  发布文案.txt             # final platform copy + separate operator notes
   work/                    # reuse an existing 工程/ or equivalent
                            # necessary sources/provenance, alignment,
                            # edit map, render recipe, and compact QA
 ```
 
 Do not duplicate multi-gigabyte media merely to satisfy this shape. Keep a single owning copy or a clearly documented, verified derivative.
+
+Identify one authoritative release file per publication unit. Label full archive masters separately from independently publishable parts and map each part to its own copy. Reuse the existing project layout; for a batch, a compact inventory under [publishing.md](publishing.md) is enough for a human handoff.
 
 When a book or product recommendation belongs in the video, add the asset/CTA choice and platform product-card mapping described in [product-recommendations.md](product-recommendations.md). A finished local video and a verified purchase attachment are separate delivery states; record each accurately.
