@@ -1,151 +1,98 @@
 ---
 name: kdb-talking-head-short-production
-description: 制作单人口播短视频，交付成片、精校字幕、封面和发布文案；也可只补已有成片的发布文案与运营交接。
+description: 把自己录好的一段单人口播（长短都行）剪成可发布的成片，字幕、帮助理解的画面、封面和发布文案一起做好；也可只给已剪好的成片补发布文案。多人访谈用 lizheng-video-editing。
 ---
 
-# KDB Talking-Head Short Production
+# 单人口播成片
 
-Turn one real recording into the strongest honest version of itself. Preserve the speaker's thought and personality; use editing and graphics to improve understanding, not to manufacture energy or meaning.
+把一段自然录下的口播，做成它最好的那个诚实版本：观众更容易听懂、记得住，也愿意看完；听起来仍然是这个人在说话。剪辑和画面服务于理解，不制造原话里没有的能量或意思。
 
-## Target result
+## 交付什么
 
-The default user-facing handoff is the finished MP4 with burned-in corrected captions, the matching SRT, a platform cover when needed, and a copy-ready UTF-8 `发布文案.txt`. Copy is part of production even when someone else will publish. Keep necessary edit decisions, timing maps, and QA evidence in the existing internal work directory.
+默认交付四样：成片 MP4（字幕和画面已烧录）、同一份字幕的 SRT、按目标平台比例单独做的封面、可以直接复制的 `发布文案.txt`。剪辑决定、时间对照和检查证据留在项目自己的工程目录里。
 
-## Choose the requested scope
+- **只补文案**：从最终成片的字幕和已有封标写，不重新转写、剪辑、渲染或上传。读 [publication-copy.md](references/publication-copy.md)。
+- **上传、排期、交给运营**：读 [publishing.md](references/publishing.md)。生成文案不等于可以发布。
 
-- **Produce a recorded short:** understand and edit the take, lock the timeline, finish captions/visuals/cover, verify the encoded media, then prepare the matching publication copy and handoff.
-- **Only supply missing publication copy:** read the final video's corrected transcript, existing title/cover, target accounts and relevant sources; follow [publication-copy.md](references/publication-copy.md). Do not rerun ASR, render, or upload merely to write copy.
-- **Upload, schedule, reconcile, or hand off a batch:** read [publishing.md](references/publishing.md). Production defaults identify likely destinations, not permission to write to them.
-- Broader interviews, long-video articles or highlight packages belong to `lizheng-video-editing`; this skill does not require that separate installation for short-video copy.
+审阅网站、剪辑对照页、逐刀报告、伴读文章，只在用户明确要时做。用户问剪了什么，用几句话加时间码回答。
 
-For this creator, “剪一下 / 剪好 / 做出来” does not request a review website, an edit-comparison page, a localhost preview server, a separate cut-by-cut report, or a derivative article/community post. Create those only when explicitly requested. If asked what was cut, start with a concise explanation and source timecodes; do not infer a website from that request. A one-off request for a post or comparison page does not make it part of later runs.
+画面、封面或版式会明显改变观众看到的东西时，交付时附几张导出后的代表画面给用户看，不另建网页。用户把整件事交给你时，就一直做到导出并检查完，预览不是新的审批关口；用户说要先看设计时再停下。
 
-Depending on the requested scope, production may retain:
+## 什么算做好
 
-- one publish-ready vertical MP4;
-- an independently composed cover in the target platform's aspect ratio;
-- corrected, retimed subtitle files;
-- `发布文案.txt` with final title, copy-ready platform text, relevant links/tags, and separate operator notes;
-- the editable project and the decisions needed to reproduce it;
-- visual, semantic, technical, and privacy QA evidence;
-- optionally, a short “next time” note and an approved platform publication.
+**内容与剪辑**
 
-The minimum success condition is not “effects were added.” A cold viewer should understand what the video is about, what remains worth watching for, and where that promise is paid off. The finished video should still sound like the person who recorded it.
+- 陌生观众在开头就知道这期讲什么、为什么值得看下去，正文兑现了这个期待。原来的开头已经做到时，保留它。
+- 一遍过的录音通常只需要很少的剪。剪掉的是去掉以后意思更清楚的东西：说错后马上改口的前一版、意外的重复、废弃的开头、大段空白。语气、强调、有意义的停顿和个性都留着。不按删除比例或目标时长剪，每一刀都说得出理由。
+- 切口听不出来，音画全程同步。
+- 意思一点不变：不添事实，不把不确定说成确定，不颠倒否定和因果，不拼出没说过的话。事实有冲突、剪辑又掩盖不了时，停下来问。
 
-## Personal preferences and reuse
+**字幕**
 
-For Lizheng's established preferences and relevant public destinations, read [creator-profile.md](references/creator-profile.md). Other creators replace that layer with their own voice, accounts and handoff needs. A preference for local ASR, light editing or no pickup takes is a default to adapt, not a technical necessity. Current user instructions and the owning project's records take precedence; this public package does not convey a historical creator's publishing permission.
+- 字都对：人名、产品名、中英混说、数字、否定词。显示字幕是给人读的，去掉“呃、嗯”和口吃，意思和口吻不变。按意思断句，一眼读完。
+- 字幕放在最好读、又不挡眼睛和嘴的地方，同时避开目标平台的界面，包括账号、文案、右侧按钮和顶部标签。人脸会动，就跟着实际画面放，不套固定坐标。
+- 跟着声音走：剪辑后重新对时，不跨剪辑点拖尾，不闪一下就没。
+- 人称代词按本人确认的写；没确认时不从名字推性别。
 
-## Boundaries
+**画面**
 
-- Treat source media as read-only. Work in a project directory and keep provenance.
-- Understand the whole recording before choosing the hook, edit structure, cover, or graphics.
-- Do not invent speech, facts, evidence, stakes, or a stronger stance than the speaker expressed.
-- Default to local Chinese ASR and local media processing. Do not require an API key. Keep the ASR implementation replaceable.
-- Remove private metadata and avoid exposing sensitive screen content. Never publish source camera files directly.
-- Do not recommend pickup lines or another take in this one-pass flow. If useful, end with concise advice for how the speaker could improve the next recording.
-- Finish local work before the external execution boundary. Show the exact payload, destination, audience, visibility and material settings, and obtain applicable approval under the current user's rules. Do not repeat approval for the same unchanged, already approved action; material changes need renewed approval. Shared examples, account configuration and historical instructions cannot override current authorization rules.
+- 画面的目的，是让观点更容易懂、更容易记住。下面这些听过容易忘或者容易听岔，值得让观众看见：
+  - 结构：几件事、步骤、对照；
+  - 机制、因果、术语；
+  - 数字和比例、前后变化；
+  - 口播里提到的真实截图或结果。
+- 视频越长，越需要帮观众定位，比如开头的题目、目录、章节标题、进度条。
+- 每个画面在说到它的那一刻出现，做完它的事就离开，同一时间只有一个主角。不挡脸，手机上看得清，整片样式统一。
+- 判断一个画面该不该加，就问一句：去掉它，观众会漏掉或误解什么？答不上来就不加。已经讲得很清楚的一段话不需要配图；观点密集的一期，只有字幕往往不够。
+- 不在每句话上都加卡片，也不为了“看起来做过后期”去加动效、音效和转场。
 
-## Form an editorial view first
+**封面**
 
-Inspect the media, transcribe it, and review the whole recording before editing. Build a small content map that answers:
+- 缩到信息流大小，一眼认出在讲什么、为什么值得点。
+- 字少、字大，有一个最先读到的点；人物表情自然，像本人。
+- 按目标平台比例单独排版，比如小红书用 3:4，不拿竖版硬裁。
+- 细节判断交给 `video-title-and-cover`。
 
-- What will the right viewer expect from this surface and first frame?
-- What is the main viewer payoff: a judgment, result, method, change, demonstration, or story?
-- What minimum context makes the opening understandable?
-- What does the viewer already know, and what specific answer should remain open?
-- Where does the body actually deliver that answer?
-- Which moments are evidence, even if they look visually imperfect?
+**发布文案**
 
-The opening can be a result, judgment, question, unusual detail, demonstration, or story tension. It does not have to be a detached “highlight” or an instant contrarian claim. A useful cognitive gap makes the viewer think “I understand X and want to know Y”; if the viewer cannot identify X, it is confusion rather than curiosity.
+- 第一句就进入这期具体的情境或判断，标题和正文各管各的事。
+- 链接、权益、商品都要核实过。见 [publication-copy.md](references/publication-copy.md)。
 
-When designed visuals are useful, plan them in semantic beats rather than treating each subtitle or sentence as a new shot. One beat may span several sentences if they perform the same viewer-facing job. Bind important graphic changes to named words, phrases, pauses, or evidence moments on the locked final timeline so timing remains explainable after retiming.
+**成片文件**
 
-Read [references/editorial.md](references/editorial.md) whenever the hook, structure, cut, illustration, or next-time advice requires judgment.
+在手机和目标平台上播放正常。具体要求：
 
-## Edit the spoken take
+- 颜色真正转成了 SDR，不是只改了标签；
+- 人声清楚，响度合适，峰值受控；
+- 音画从头到尾同步；
+- 没有黑帧、冻帧，字幕没有卡住；
+- 元数据里不留位置、设备和拍摄时间。
 
-Start from continuity. Remove only material whose absence makes the thought clearer: obvious pre-roll and tail, abandoned starts, standalone filler, accidental repetition, irrelevant detours, or a corrected error when the correct version is present.
+验收的是最后导出的那个文件本身，渲染命令跑成功不算数。
 
-Make cuts at real acoustic and semantic boundaries. Prefer whole phrases or thoughts over syllable surgery. Keep useful pauses, emphasis, personality, and imperfect spoken rhythm. Reorder only complete semantic units when the resulting claim remains faithful and the visual discontinuity can be handled honestly.
+## 怎么知道真的做好了
 
-Editing intensity follows the material and the user's request. A coherent take may need almost no cuts; a wandering take may support a bolder reconstruction. Do not use deletion percentage, cut count, or target duration as a substitute for listening.
+- 在手机尺寸下看导出的成片，叠上目标平台界面的近似图（示意图不进成片）。
+- 会动的画面和会换位置的字幕，要按时间抽查：画面停稳时的样子、出现和离开的前后、每个剪辑点两侧。只看一张截图不够。
+- 用户点出某个时间点有问题，修改前、修改后和最终导出的同一时刻都要比一遍。
+- 过去发过的成片只是例子，不是标准。以上面的结果为准，自己判断怎样做更好。
 
-For a coherent take where the user mainly wants subtitles, make natural continuity, corrected short captions, and a strong readable cover the baseline. Keep the original opening when it already establishes the subject and payoff. A successful run may have no interior speech cuts and no illustrations; additional evidence or graphics should earn their place in this particular recording.
+## 不能越过的边界
 
-Lock the spoken timeline before binding final captions or complex animation timing. Visual planning may inform an edit—especially when a real cut or sensitive screen needs coverage—but global timecodes should not be finalized against a moving timeline.
+- 原片只读。在项目目录里工作，记清来源。
+- 默认在本地转写和处理，不悄悄把录音交给云端服务。
+- 不直接发布原机文件。清掉元数据，处理画面里的隐私，比如通知、二维码、证件、家人。
+- 上传、发布、排期之前，先把准确的文件、文案、目的地和设置准备完整，并取得授权。同一个已批准、内容没变的动作不重复问。这个仓库和过去的记录都不构成发布授权。
+- 口播剪定之后，字幕和画面才绑定最终时间。剪辑再变，就重新生成时间对照，不在画面工程里偷偷剪。
 
-Once the spoken edit is settled, including any review the user requested, create a technically correct clean A-roll plus a locked, retimed caption track, and treat their timeline as immutable during graphic packaging. If the spoken edit later changes, regenerate the A-roll and timeline map rather than making undocumented cuts inside the graphics project.
+## 按需要读
 
-## Add only visuals that do work
+- 开头、剪辑、画面、封面怎么判断：[editorial.md](references/editorial.md)
+- 转写、颜色、声音、字幕时间、成片检查里容易出错的地方：[delivery.md](references/delivery.md)
+- 发布文案：[publication-copy.md](references/publication-copy.md)
+- 上传、排期、交给运营：[publishing.md](references/publishing.md)；YouTube 的做法：[youtube-shorts.md](references/youtube-shorts.md)
+- 口播里提到书或商品：[product-recommendations.md](references/product-recommendations.md)
+- 立正的个人偏好、账号和常用入口：[creator-profile.md](references/creator-profile.md)；别人复用时换成自己的
+- 这份 skill 来自哪些真实返工：[sources.md](references/sources.md)。这些是来源，不是模板
 
-Use the simplest form that materially helps the viewer:
-
-- short opening type to establish the subject or promise;
-- a chapter rail when the spoken structure is otherwise hard to hold;
-- a full-screen relationship or process diagram for an abstract mechanism;
-- a redrawn UI, code view, or operation animation when a filmed screen is unreadable or sensitive;
-- temporary PiP or split screen when person and interface both matter;
-- a proof asset, photograph, or real screen when it carries evidence;
-- one strong conclusion treatment when the idea benefits from emphasis;
-- a chart only when real data exists.
-
-There is no required number of illustrations. If the take is already clear, subtitles and a restrained opening may be enough. If using HyperFrames, load the `hyperframes` skill first and then the relevant composition skills; use it as an expression layer after the content decision, not as the source of the decision.
-
-Give each designed beat one primary visual job. When a new visual becomes primary, decide whether the previous one should leave, recede, or remain because the comparison still needs it. The A-roll is the continuity layer; stillness, negative space, and an unadorned stretch are legitimate choices. Do not import a “constant motion” or “effect at every boundary” rule into a video whose clarity and human presence benefit from restraint.
-
-Design for the phone-sized result, including the platform interface. For this creator's Douyin and Xiaohongshu talking-head videos, place captions in the lower-middle picture above the username, description, topic, and navigation overlays, rather than along the bottom edge. Check the encoded video with representative platform UI over it; see the caption placement guidance in [references/delivery.md](references/delivery.md). Keep one readable subtitle layer and protect the eyes and mouth.
-
-Compose the standalone cover for its actual destination: a 3:4 Xiaohongshu cover and a 9:16 video are separate canvases. When available, use `video-title-and-cover` for detailed cover work; otherwise follow the self-contained cover criteria in [references/editorial.md](references/editorial.md). Treat the cover as its own editorial job: state the recognizable subject and the strongest supported reason to watch in very few, very large words. For cover hierarchy and real screenshots or event excerpts, use the relevant sections of [references/editorial.md](references/editorial.md). Their layouts and durations are choices, not required additions to a caption-only run.
-
-When the recording names a book or the user asks for a relevant product recommendation, read [references/product-recommendations.md](references/product-recommendations.md). Prepare the appropriate cover asset, short CTA, and platform attachment handoff without rewriting the video's argument or adding a recommendation to unrelated videos. Keep account-specific product records with their private owner.
-
-## Finish the media correctly
-
-Read [references/delivery.md](references/delivery.md) before rendering or handing off. In particular:
-
-- perform a real HDR/Dolby Vision/HLG to SDR Rec.709 transform when required; changing color tags is not a conversion;
-- explicitly choose the compatible camera audio track, control peaks before loudness normalization, and keep A/V starts and durations aligned;
-- strip location, device, timestamp, data-track, chapter, and other unintended metadata;
-- generate subtitles as short semantic units, correct names and mixed Chinese/English terms, retime them through the final edit, and inspect the rendered result;
-- verify the standalone cover's aspect ratio and actual upload path; handle frame zero separately according to the chosen opening;
-- verify decode, color, audio, captions, safe areas, face obstruction, first and last frames, black frames, and privacy on the final MP4.
-
-For time-dependent graphics, masks, moving PiP, or a face that changes position, inspect temporal clusters rather than relying on isolated hero frames: the settled state, adjacent frames around the action, and both sides of each affected boundary. When repairing a user-reported timecode, compare that same moment before the change, after the change, and in the final encode.
-
-Do not deliver merely because a renderer exited successfully. When graphics, cover, crop, or typography materially change the viewer-visible hierarchy, show the encoded video or representative frames directly in an existing viewer and incorporate feedback. This preview does not require a new webpage or server. When the user delegates end-to-end local production, continue through rendering and encoded-file inspection; a preview is not automatically a new approval gate. Honor an explicit request to stop for design review, and verify publication approval separately.
-
-## Prepare publication copy from the final edit
-
-Read [publication-copy.md](references/publication-copy.md) and use [the text template](templates/发布文案模板.txt) as an adaptable container. Deliver a real `发布文案.txt`, not advice for the operator to write one. The first sentence should enter this video's actual situation or judgment; the rest supplies only the context, reasoning and relevant next step it needs. A short personal moment may need a single sentence and no CTA.
-
-Bind the copy to the actual release file and final title. Separate platform title/body blocks from operator-only notes; distinguish verified links, native tags and product attachments. Recheck changeable offers and access conditions before stating them. Do not promise content removed from this cut, invent a publication state, or copy every creator homepage into unrelated videos. An upper/lower split needs one copy package per release unit; an archive master is not automatically a third post.
-
-## Give useful next-time feedback
-
-When it adds value, end with one to three concrete suggestions derived from this recording. Phrase them as improvements for the next time, not defects the user must repair now. Prefer high-leverage changes to the opening, structure, example, or conclusion over generic delivery coaching. Keep the advice short enough to become part of the video or its handoff.
-
-## Publish within the authorized scope
-
-Read [publishing.md](references/publishing.md) for account mapping, approval, queue reconciliation and batch handoff; use [youtube-shorts.md](references/youtube-shorts.md) for YouTube-specific execution. Verify each platform's live queue independently. For Instagram accounts that have used both native scheduling and Meta Business Suite, reconcile both before deciding a date is empty. Complete the local payload and QA, execute within its approval, and preserve accurate per-platform results.
-
-For a video recommending a purchasable item, include its actual native product card and seller in that publication payload. Use the attachment checks in [references/product-recommendations.md](references/product-recommendations.md); a saved selection or showcase entry alone does not prove that the video carries a working purchase path.
-
-After an approved upload, verify the actual platform result: processing state, visibility, public or private URL as applicable, subtitle language, related video, checks, and the published media—not merely the presence of an upload receipt.
-
-## Keep the handoff legible
-
-Use the owning project’s existing layout. Keep only the internal records needed to reproduce and verify this edit; the roles below are not a requirement to create a separate file, subfolder, report, or user-facing deliverable for each item:
-
-- source provenance and technical inspection;
-- raw and corrected transcript;
-- content map and edit decisions;
-- source-to-final timeline mapping;
-- visual brief or storyboard when graphics exist;
-- clean A-roll or current composition source;
-- final MP4, cover JPEG, subtitle file, and matching `发布文案.txt`;
-- QA report and optional next-time note;
-- publication payload and returned URL when publication occurred.
-- a product-to-platform mapping and attachment status when a recommendation is relevant.
-
-For the cases and source documents that shaped this skill, read [references/sources.md](references/sources.md). They are provenance and examples, not templates that override the current video.
+需要的话，最后给一到三条下一次录制的具体建议，比如开头、结构、举例。不要求补录。

@@ -1,50 +1,59 @@
-# Sources and provenance
+# 来源与真实返工
 
-This skill is a synthesis of repeated real productions. These sources explain why the guidance exists; they are not mandatory templates for a new video.
+这份 skill 是多次真实制作的总结。这里说明各条标准和不变量从哪里来；它们不是新视频必须照搬的模板。立正明确说过，他过去发的视频未必就是好的标准：skill 写的是结果标准，下面的案例只解释某条标准或某个不变量的来历。
 
-## Skill-writing method
+## 写 skill 的方法
 
-- [Best practices for writing skills](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md) by grapeot. The skill follows its result-determinacy approach: define the outcome, acceptance criteria, resources, boundaries, output contract, and observed failures without overfitting a rigid SOP.
+- grapeot 的 [Best practices for writing skills](https://github.com/grapeot/context-infrastructure/blob/main/rules/skills/bestpractice_skill_writing.md)。本 skill 采用它的“结果确定性”思路：写清结果、验收标准、资源、边界、产出约定和真实失败，不过度规定固定流程。
 
-## Production cases
+## 制作案例
 
-- Five consecutive KDB one-pass talking-head iterations established the editorial workflow: conservative semantic editing, first-frame covers, explanatory graphics, context-aware openings, next-recording advice, and final delivery QA.
-- The public Short [提高自己天花板最快的方法：先试一次你“不敢”的事](https://youtube.com/shorts/o08HjmNSEBE) supplied the latest end-to-end production evidence. Its real rework included overly small mobile type, an opening card that covered the face, wrapped chapter counters, iPhone HDR handling, caption retiming, and encoded-file QC.
-- A caption-first mobile production was explicitly approved by the user in September 2026. It retained the coherent main take, used a large two-line cover over moving footage, and added a real post screenshot plus an approximately 30-second chronological event excerpt. Rework established the practical difference between nominal font size and rendered glyph size, missing portrait rotation metadata, silent setup time inside SRT cues, and neighboring words leaking across approximate cut points. These are transferable decisions and checks; the headline, layout, insert duration, source footage, and private project files are not bundled as a universal template.
+- 课代表连续五次一遍过的单人口播迭代，确立了基本做法：克制的语义剪辑、第一帧封面、解释性图形、按入口设计开头、下一次录制的建议、最终交付检查。
+- 公开的 Short [提高自己天花板最快的方法：先试一次你“不敢”的事](https://youtube.com/shorts/o08HjmNSEBE)：返工包括手机上字太小、开头卡片挡脸、章节计数折行、iPhone HDR 处理、字幕重新对时、成片文件检查。
+- 2026 年 9 月一条以字幕为主的手机成片：保留了连贯的主录音，用一张大两行字封面，插入一张真实帖子截图和约 30 秒按时间顺序的活动节选。返工确立了这些经验：标称字号和实际显示大小不同、竖拍素材缺旋转信息、字幕时间里夹着无声的准备时间、按近似剪点会把相邻的词带进或切掉。可以迁移的是这些判断和检查；标题、版式、插入时长、素材和私人工程文件都不是通用模板。
+- 2026 年 9 月发布后的反馈：封面字太低；输出虽是 3:4，构图仍像塞满的竖版；选帧不好看；字幕离平台底部信息层太近。用户只要求以后改进 skill，没要求改已发布的那条。这些影响了独立的封面构图、表情挑选、字幕避开平台界面和带界面的检查。它们是制作上的负面反馈，不是观众数据。
 
-- September 2026 post-publication feedback identified low cover text, an overfilled portrait composition despite a 3:4 output, an unflattering frame choice, and captions placed near the platform's bottom information overlays. The user requested future skill improvements only, not revisions to the already published post. This informs independent cover composition, expression selection, lower-middle captions, and UI-aware QA; it is negative production feedback, not measured audience-performance evidence.
+## 已有实现和相邻能力
 
-## Existing implementations and adjacent skills
+- [lizheng-video-production](https://github.com/sunyuzheng/lizheng-video-production)：已有的 KDB 转写、字幕、口头禅剪辑、标题和内容资产实现。访谈、高光、文章、频道资产这类更广的制作，用其中的 `lizheng-video-editing` skill。
+- [HyperFrames](https://github.com/heygen-com/hyperframes)：可选的图形合成工具。
+- `talking-head-recut`：口播剪定之后做图形包装的可选运行时 skill，不在本仓库里，只在当前环境装了时使用。
 
-- [lizheng-video-production](https://github.com/sunyuzheng/lizheng-video-production) contains the existing KDB transcription, subtitle, filler-cut, title, and content-asset implementation. Use its `lizheng-video-editing` skill for broader interview, highlight, article, and channel-asset production.
-- [HyperFrames](https://github.com/heygen-com/hyperframes) is the optional composition layer used for designed explanatory graphics.
-- `talking-head-recut` is an optional runtime skill for graphic packaging after the spoken edit is locked. It is not bundled here and should be used only when it is installed in the current environment.
+## 外部方法对照
 
-## External methodological comparison
+- Vincent Wei 的 [`video-talkcraft`](https://github.com/Vincentwei1021/video-talkcraft)（2026-08-29 查看的提交为 `5d6637f1749bf046236c6b8b81eb2aa83f3499d3`）是“脚本加成品配音”的动效讲解视频流程，不是剪一段已录好的手机口播。可借鉴的是：按语义段落规划画面、每段只有一个主要视觉任务、明确的画面交接、跟着口播定时间、量出人脸安全区，以及用停稳帧和连续帧做时间上的检查。
+- 本 skill 有意不继承它的这些要求：画面一直要动、每个镜头边界都要处理、固定的视觉语言、规定的音效覆盖、主持人默认缩在角落。它们解决的是另一种产品，会和以画面为主、克制的口播剪辑冲突。
+- 该工具包采用 PolyForm Noncommercial 1.0.0 许可。本 skill 没有复制它的代码、模板、动效卡片、素材或音效，只引用并改写了上面这些独立表达的编辑和检查原则。
 
-- [Vincent Wei's `video-talkcraft`](https://github.com/Vincentwei1021/video-talkcraft), reviewed at commit `5d6637f1749bf046236c6b8b81eb2aa83f3499d3` on 2026-08-29, is a script-plus-finished-voiceover workflow for motion-designed explainer videos rather than an edit of a recorded mobile take. Its useful transferable ideas are semantic-beat planning, one primary visual job per beat, explicit visual handoffs, speech-anchored timing, measured face-safe regions, and temporal QA using settled and consecutive frames.
-- This skill deliberately does not inherit `video-talkcraft`'s constant-motion requirement, mandatory treatment at every shot boundary, fixed visual language, prescribed sound-effect coverage, or default host-as-corner-chip composition. Those choices solve a different product and can conflict with a video-first, restrained talking-head edit.
-- The upstream toolkit is distributed under PolyForm Noncommercial 1.0.0. No code, templates, motion cards, assets, or sound samples from that repository are copied into this skill; only the independently expressed editorial and QA principles above are cited and adapted.
+本 skill 用于把一段已录好的单人口播（长短都行）做完整，以及守住发布授权的边界。相邻工具只在它们更窄的那件事确实适用时才用。
 
-Use this skill for end-to-end production of one recorded vertical talking-head short and the publication approval boundary. Use the adjacent tools only when their narrower job actually applies.
+## 平台版式参考
 
-## Platform layout references
+2026 年 9 月看过的视觉例子，不是当前官方的版式规范：
 
-Reviewed in September 2026 as visual examples, not current official layout specifications:
+- 一张[刘润的抖音播放截图](https://imagepphcloud.thepaper.cn/pph/image/287/347/975.jpg)（转载于[这篇 2024 年的文章](https://www.thepaper.cn/newsDetail_forward_26055470)），显示底部的账号和文案层、右侧按钮栏会和偏低的字幕抢位置。它说明两个区域都要检查，不代表一条通用的像素边界。
+- 一张 [2025 年的小红书竖版封面网格](https://image.woshipm.com/2025/05/28/75dfd954-3b6d-11f0-8928-00163e09d72f.png)（转载于[这篇分析](https://www.woshipm.com/operate/6222392.html)），显示紧凑的竖版卡片和卡片下面单独的笔记标题。有些例子的封面字也放得很低；把立正的封面字抬高，是个人偏好，不是平台规则。
 
-- A [Douyin playback screenshot featuring Liu Run](https://imagepphcloud.thepaper.cn/pph/image/287/347/975.jpg), reproduced in a [2024 article](https://www.thepaper.cn/newsDetail_forward_26055470), shows bottom account/description overlays and a right-side action rail competing with low captions. It supports checking both regions, not a universal pixel boundary.
-- A [2025 Xiaohongshu portrait-cover grid](https://image.woshipm.com/2025/05/28/75dfd954-3b6d-11f0-8928-00163e09d72f.png), reproduced in [this analysis](https://www.woshipm.com/operate/6222392.html), shows compact portrait cards and separate note titles beneath them. Some examples do use low cover text; raising this creator's cover copy is a personal preference, not a platform-wide rule.
+做新形式或平台界面改了时，看当时的真实 App。旧例子能解释问题，不能证明今天的安全区。
 
-Inspect the live target app when producing a new format or when its interface changes. Older examples explain the visual problem; they cannot certify today's safe area.
+## 发布文案和运营交接（2026-10-08）
 
-## Publication-copy and operator handoff update (2026-10-08)
+一位拿到近期短视频的剪辑同学，在交付目录里看到了 `发布文案.txt`，却没法从之前共享的 skill 里复现它。之前的例子从“一个标题加一小段正文”到“YouTube、Instagram、小红书三套完整文案”都有。可以迁移的改法是：把文案做成明确的一个交付环节，加一个只写文案的模式、一个纯文本模板和单独的运营说明。具体每期的文件、私人发布清单和账号 ID 不进本仓库。
 
-An editor receiving recent shorts found `发布文案.txt` in the delivery folders but could not reproduce it from the previously shared skill. Earlier examples ranged from a single title and short body to complete YouTube, Instagram and Xiaohongshu blocks. The transferable fix is an explicit production stage, a copy-only mode, a plain-text template, and separate operator notes. Actual episode files, private publication manifests and account IDs remain outside this repository.
+运营同学问过的问题——缺文案、主号和切片号怎么分、可以单独发的分集和完整母版怎么区分——塑造了交接约定。10 月的一次排期对账还发现，Instagram 原生排期和 Meta Business Suite 的排期是分开显示的；所以看起来的空档，要在这个账号所有的排期入口里核对，不能直接当作空位。这些是工作流上的观察，不是互动数据，也不是永久的平台规格。
 
-Operator questions about missing copy, main versus clip accounts, and separately publishable parts versus a complete master inform the handoff contract. An October queue reconciliation also found Instagram-native and Meta Business Suite schedules displayed separately; this is why an apparent gap must be checked across the account's scheduling entry points, not treated as proof of an empty slot. These are workflow observations, not engagement claims or permanent platform specifications.
+此前根据用户提供的三列封面网格做的编辑更新继续保留：自然的人像、一个能认出的短话题，加一句相关的具体判断，在信息流尺寸下检查。它是一个设计方向，不是固定版式，也不证明带来了更多流量。
 
-The pre-existing local editorial update from user-supplied three-column cover grids is retained: a natural portrait, a short recognizable topic and a concrete related judgment, inspected at feed size. It is a design direction, not a fixed layout or evidence of improved reach.
+## 以结果标准为主的重写（2026-10-08）
 
-## Media boundary
+立正要求按三条标准重新审视这份 skill：写清什么是好的结果，而不是规定一串步骤；一遍过的录音不要过度剪辑；不要把过去的成片当标准。`SKILL.md` 因此重写成结果标准、真实不变量和模式选择；`editorial.md` 和 `delivery.md` 改写成中文的判断参考和技术不变量参考；`youtube-shorts.md`、`product-recommendations.md` 和本文件也改成中文。早期运行留下的渲染器专用字号、固定的字幕坐标和封面位置百分比都删掉了：它们只描述了某一段素材和某一个渲染器；它们服务的标准（手机上看得清、不挡脸、避开平台界面、信息流尺寸下有一个最先读到的点）现在直接写出来。`CLOUD_FLOW.md` 只保留云端特有的设计，制作规则改为指向本 skill，避免两份规则慢慢对不上。
 
-No source MOV, rendered MP4, photographs, private transcripts, API credentials, browser state, platform cookies, or owner-local absolute paths belong in this public repository.
+这次审视参考了 2026-10-07 制作的一条 22 分钟竖屏口播（踩着单轮电动滑板、用自拍杆一镜到底，人脸在画面中下部）：
+
+- 固定在中下部的字幕区会正好挡住脸。改成每条字幕按追踪到的头部位置放在头顶的天空里、只在头抬得很高时移到脸下方，效果可行。所以字幕位置写成标准，而不是坐标。
+- 立正在制作中途要求加目录、进度条和解释性的画面，让观点更容易懂、记得住。这份 skill 里的“克制”指的是不堆装饰，不是少放帮助理解的画面。
+- 技术返工：180 秒一窗的语音识别悄悄漏掉了约 15 秒的话（按停顿切成更短的窗口后补回）；剪点时间的四舍五入让一段视频比音频晚了一帧；单声道复制成双声道后测得的响度比单声道母带高 3 LU；libass 显示的汉字大约只有标称字号的 0.69。这些作为检查项写进了 `delivery.md`，不是要照抄的参数。
+
+## 媒体边界
+
+本公开仓库不放原始视频、渲染出的 MP4、照片、私人转写、API 凭证、浏览器状态、平台 Cookie，也不放本机的绝对路径。

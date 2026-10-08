@@ -1,38 +1,38 @@
-# Relevant book and product recommendations
+# 书和商品推荐
 
-Use this mode when the take already discusses a book or product, or the user asks for a recommendation that fits its subject. An unrelated short needs no product treatment. Preserve the argument and any mature edit; do not manufacture a new endorsement or insert a standard sales ending into every video.
+口播里本来就讲到一本书或一件商品，或者用户要求为这期内容推荐相关商品时读。和商品无关的片子不需要任何商品处理。保住原来的论点和已经成熟的剪辑，不制造新的推荐，也不给每条视频都加一个标准的带货结尾。
 
-## Resolve the product and its owner
+## 先认准商品和它的归属
 
-Find the user's maintained product/channel record and asset folder before drafting a purchase instruction. Treat the stable identity (title, author, publisher, ISBN or edition) separately from changing channel state (seller, listing, price, stock, affiliate plan, eligibility and expiry).
+写购买引导之前，先找到用户维护的商品／渠道记录和素材文件夹。稳定的身份（书名、作者、出版社、ISBN 或版本）和会变的渠道状态（卖家、链接、价格、库存、带货计划、资格、有效期）分开看。
 
-Use an existing publisher or merchant listing when that is the user's chosen route. Do not create a parallel self-operated product, change the merchant's offer, or infer seller eligibility from a different account role. A physical book, recorded course and book/course bundle are different products. Earlier signed-edition, limited-stock, bonus-course or membership offers do not automatically apply to the current ordinary book.
+用户选的是现成的出版社或商家链接时，就用那个。不另建一个自营商品，不改商家的报价，也不从另一个账号角色推断卖家资格。实体书、录播课和书加课的套装是不同的商品。之前的签名版、限量、赠课或会员权益，不会自动适用于现在的普通版书。
 
-Keep exact merchant IDs, account state, commission data, internal links and owner-local paths in the private channel record or project handoff, not in this reusable public skill. If the record is unavailable, finish the edit and assets, mark the missing attachment facts, and continue the independent work.
+准确的商家 ID、账号状态、佣金数据、内部链接和本机路径，放在私有的渠道记录或项目交接里，不进这个公开 skill。拿不到记录时，照样完成剪辑和素材，标出缺的挂载信息，继续做不依赖它的部分。
 
-## Prepare only what helps this video
+## 只准备对这期有用的东西
 
-- Prefer the original book cover or actual product asset. A generated display image is optional supporting material; preserve applicable AI-content declarations and never describe it as a photograph.
-- If a book visual helps the spoken reference, place it at that reference with the existing subtitle system. A recommendation need not replace the main cover or become a full-screen advert.
-- Draft a short, faithful CTA for the surface that can actually carry the purchase: for example, a verified native product card. Do not burn a changing price, commission or expiry into the video by default.
-- Retain a mature video's speech and viewpoint. If an existing spoken CTA names a comment link but the platform only supports another purchase surface, record that mismatch for the publication task; do not silently claim a link exists or redirect the viewer to an internal merchant console.
+- 优先用原书封面或真实的商品素材。生成的展示图是可选的辅助素材，要保留适用的 AI 内容声明，也不能说成照片。
+- 书的画面能帮助口播里提到它的那一句时，就放在那一句，并沿用同一套字幕。推荐不需要替换主封面，也不需要变成全屏广告。
+- 只为真正能承载购买的入口写简短、如实的引导，例如核实过的原生商品卡。默认不把会变的价格、佣金或有效期烧进视频。
+- 成熟视频的口播和观点保持不变。原来的口播说“链接在评论区”，而平台只支持另一种购买入口时，把这个不一致记给发布环节；不要声称链接已经存在，也不要把观众引到商家后台。
 
-## Handoff and attachment checks
+## 交接和挂载检查
 
-For each requested platform, keep a compact mapping in the project:
+每个要发的平台，在项目里留一张简短的对应表：
 
-| Field | What the next publisher needs |
+| 项目 | 下一个发布的人需要知道什么 |
 |---|---|
-| Product | Exact identity and edition; owning source record |
-| Asset and CTA | Chosen original/generated asset, provenance and proposed purchase wording |
-| Platform and account | Actual publishing account; do not transfer eligibility across platforms |
-| Listing | Verified item ID and seller, or explicitly not yet verified |
-| Current state | Selected, in showcase, available in this editor, attached in preview, or published and reader-verified—record only the state observed |
-| Runtime check | Date checked, price/version/stock, plan validity and expiry when applicable |
-| Buyer destination | Actual native product card/showcase; merchant-management URLs are not reader purchase links |
+| 商品 | 准确的身份和版本；来源记录 |
+| 素材和引导语 | 选用的原图或生成图、出处，以及打算用的购买说法 |
+| 平台和账号 | 实际发布的账号；资格不能在平台之间转移 |
+| 商品链接 | 核实过的商品 ID 和卖家，或明确写“未核实” |
+| 当前状态 | 已选品、在橱窗、这个编辑器里能选、预览里已挂上、已发布且从读者视角核实过——只写实际看到的状态 |
+| 运行时检查 | 检查日期；适用时写价格、版本、库存、计划有效期 |
+| 读者的购买入口 | 真正的原生商品卡或橱窗；商家后台的链接不是读者能买的链接 |
 
-Before publication, recheck the current seller, product edition, price and plan validity, then inspect the actual card attached to the exact video draft. Include it in the existing exact-payload approval, rather than creating an extra approval stage. After publication, verify from the reader's view that the card opens the intended merchant's product.
+发布前，重新核对当前的卖家、版本、价格和计划有效期，再看这条视频草稿上实际挂的那张商品卡。把它放进已有的“准确内容批准”里，不另设一道审批。发布后，从读者视角确认商品卡打开的是对的商家和商品。
 
-Distinguish affiliate selections/showcases from self-operated store inventory. An empty self-operated product picker does not disprove affiliate availability; equally, an item already in the affiliate showcase does not prove that a particular web/mobile editor can attach it. Preserve a discovered editor limitation, and leave an untested client or platform as unverified instead of inventing a URL or workaround listing.
+带货选品／橱窗和自营店库存是两回事。自营商品选择器是空的，不能证明没有带货渠道；商品已经在带货橱窗里，也不能证明某个网页端或手机端编辑器能挂上。发现编辑器的限制要记下来；没试过的客户端或平台标为“未核实”，不编一个链接或绕路的商品页。
 
-When measuring results, use the account's attributed affiliate orders, refunds and commissions for affiliate sales. Merchant-wide cumulative sales and self-operated store GMV are different metrics.
+统计效果时，带货销售看这个账号归因的订单、退款和佣金。商家的累计总销量、自营店成交额是不同的指标。

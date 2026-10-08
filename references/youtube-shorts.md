@@ -1,57 +1,57 @@
-# YouTube Shorts publication
+# YouTube 上传与核验
 
-Read this only when the user asks to upload, schedule, or publish to YouTube. Platform interfaces and limits change, so inspect the current YouTube Studio state rather than relying on fixed button positions.
+只在用户要求上传、排期或发布到 YouTube 时读。平台界面和限制会变，以当时 YouTube Studio 的实际状态为准，不依赖固定的按钮位置。
 
-## Authorization and publication manifest
+## 授权与发布清单
 
-Before upload, use read-only inspection of the authenticated Studio session to confirm the active channel and channel ID, current upload or Shorts eligibility signals, and whether the intended Related Video is available to that channel. This inspection must not select a file, create an upload, or change channel state.
+上传前，用只读方式查看已登录的 Studio：当前频道和频道 ID、上传或 Shorts 资格的信号、打算关联的视频（Related Video）这个频道能不能选。这一步不能选文件、不能创建上传，也不能改动频道状态。
 
-Prepare final copy under [publication-copy.md](publication-copy.md), then follow the current approval boundary in [publishing.md](publishing.md). Present and verify a local publication manifest before upload; a historical creator authorization embedded in a shared skill is not permission for a new execution. The manifest includes:
+先按 [publication-copy.md](publication-copy.md) 准备好最终文案，再按 [publishing.md](publishing.md) 的授权边界执行。上传前给出并核对一份本地发布清单；共享的 skill 里写过的历史授权，不是这一次执行的许可。清单包括：
 
-- channel name and channel ID;
-- exact local video path and the final file identity or checksum;
-- title and description exactly as they will appear;
-- visibility or schedule and its timezone;
-- audience setting, including made-for-kids status;
-- paid-promotion and altered/synthetic-content disclosures when applicable;
-- ad-suitability answers when the channel presents them;
-- subtitle language and exact subtitle file;
-- related video exact title and video ID, or “none”;
-- thumbnail or first-frame strategy.
+- 频道名和频道 ID；
+- 准确的本地视频路径，以及最终文件的身份或校验值；
+- 标题和简介，与上线后显示的完全一致；
+- 可见性或排期时间，以及时区；
+- 受众设置，包括是否面向儿童；
+- 适用时的付费推广、修改或合成内容声明；
+- 频道出现广告适宜性问答时的回答；
+- 字幕语言和准确的字幕文件；
+- 关联视频的准确标题和视频 ID，或写“无”；
+- 封面方案：上传缩略图，还是用第一帧。
 
-Keep the manifest accurate after platform validation or editorial changes. Approval is scoped to its payload and destination; do not ask again for an unchanged approved action, and obtain renewed approval for material changes.
+平台校验或内容修改以后，清单要跟着更新。批准只覆盖它对应的内容和目的地；同一个已批准、没变的动作不重复问，实质性改动要重新批准。
 
-If the intended file is not currently eligible for the requested Shorts treatment, do not shorten or restructure it without approval. Present the platform evidence and the available alternatives. If the Related Video control or exact target is unavailable, put `none` in the payload or ask the user to choose another exact video; never substitute a similar title.
+文件不符合想要的 Shorts 条件时，没有批准就不要剪短或重组。把平台给出的证据和可选办法说清楚。找不到关联视频的控件或准确目标时，清单里写“无”，或请用户指定另一个准确的视频；不要拿标题相近的视频顶替。
 
-## Upload and verify
+## 上传与核验
 
-Use the user's authenticated normal browser session through the supported browser-control skill. Do not extract cookies or secrets. If login, CAPTCHA, two-factor authentication, or an account chooser requires the user, pause at that point.
+使用用户已登录的正常浏览器会话，通过支持的浏览器控制 skill 操作。不导出 Cookie 或密钥。需要登录、验证码、两步验证或选择账号时，停下来请用户处理。
 
-After confirming that user authorization covers the upload:
+确认授权覆盖这次上传之后：
 
-1. Open YouTube Studio on the confirmed channel and select the exact final MP4.
-2. Wait for the upload and media analysis far enough to validate duration, aspect, and processing state.
-3. Enter the approved title, description, audience, disclosures, and thumbnail or first-frame choice.
-4. Add the approved related video by exact title or video ID. Do not select an approximate search match.
-5. Upload the corrected SRT as the intended language, even when captions are burned into the picture. Confirm the track is shown as supplied by the channel owner.
-6. Complete copyright and ad-suitability checks. Do not guess around a warning; report a material issue before continuing.
-7. Recheck every approved field, then set the approved visibility or schedule and publish.
-8. Open the returned video or Shorts URL and verify visibility, processing, title, description, related video, and subtitle track.
+1. 在已确认的频道打开 YouTube Studio，选择准确的最终 MP4。
+2. 等上传和媒体分析进行到能确认时长、比例和处理状态。
+3. 填入已批准的标题、简介、受众、声明，以及缩略图或第一帧方案。
+4. 按准确的标题或视频 ID 添加已批准的关联视频，不选搜索出来的近似项。
+5. 即使画面里已经烧录了字幕，也按对应语言上传精校的 SRT，并确认这条字幕轨显示为频道所有者提供。
+6. 完成版权和广告适宜性检查。出现警告不要绕过去猜，有实质问题先报告再继续。
+7. 逐项复核已批准的字段，然后设置已批准的可见性或排期并发布。
+8. 打开返回的视频或 Shorts 链接，核对可见性、处理状态、标题、简介、关联视频和字幕轨。
 
-For a private upload, verification still matters: confirm that the video is private and that the returned URL belongs to the intended channel. For a public upload, success means the public watch or Shorts page works—not merely that Studio accepted the file.
+私密上传也要核验：确认视频确实是私密的，返回的链接属于目标频道。公开上传的成功，指的是公开的观看页或 Shorts 页能正常打开，而不只是 Studio 收下了文件。
 
-Burned captions guarantee feed readability; the uploaded subtitle track adds accessibility and searchable text but may create duplicate words for a viewer who turns captions on. Keep the burned treatment concise and treat the platform track as an accessibility layer, not a second designed caption layer.
+烧录字幕保证信息流里看得懂；上传的字幕轨提供无障碍和可搜索的文字，观众打开字幕时可能看到重复的字。画面字幕保持简洁，平台字幕轨只当无障碍层，不当第二层设计字幕。
 
-The platform may choose or crop its own cover differently across surfaces. Record the intended frame-zero and uploaded-thumbnail strategy, then verify the actual channel and watch surfaces instead of promising identical display everywhere.
+平台在不同入口可能自己挑选或裁切封面。记下打算用的第一帧和上传缩略图方案，再去频道页和观看页核对实际显示，不承诺每个入口都一样。
 
-## Handoff record
+## 交接记录
 
-Record:
+记下：
 
-- upload timestamp and timezone;
-- channel ID and video ID;
-- final URL;
-- title, visibility or schedule, audience, related video ID, and subtitle language;
-- check results and any unresolved processing state.
+- 上传时间和时区；
+- 频道 ID 和视频 ID；
+- 最终链接；
+- 标题、可见性或排期、受众、关联视频 ID、字幕语言；
+- 检查结果和仍在处理中的状态。
 
-YouTube publication alone does not authorize another platform. Use the current creator profile to prepare destinations and record the actual approval and exact payload for each. Xiaohongshu is opt-in for Lizheng's batches; another creator sets their own scope.
+在 YouTube 发布，不代表也可以发别的平台。按当前的个人偏好准备目的地，每个平台分别记录实际的批准和准确内容。立正的批次里小红书需要单独指定；别的创作者自己决定范围。

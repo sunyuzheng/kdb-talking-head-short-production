@@ -1,144 +1,128 @@
-# Editorial judgment
+# 编辑判断
 
-Use this reference when deciding what the video means, how it should open, what to cut, and whether a graphic belongs.
+开头、剪辑、画面和封面需要判断时读。这里写的是怎样算好，以及真实返工里见过的失败；做法由当期素材决定。
 
-## Design an accurate reason to continue
+## 开头：给一个准确的看下去的理由
 
-An opening changes the viewer's prediction of the rest of the video. Start by identifying the entrance condition:
+开头会改变观众对后面内容的预期。同一句话放在不同入口，效果也不同：
 
-- cold algorithmic feed;
-- returning series viewer;
-- search or problem-solving intent;
-- excerpt from a longer work;
-- before/after, build-in-public, or documentary story.
+- 冷启动推荐；
+- 老观众；
+- 带着问题来搜索；
+- 长片里的一段节选；
+- 前后变化、公开构建、纪录式的故事。
 
-The same sentence can work in one entrance condition and fail in another. A series number may reward a returning viewer but mean nothing to a cold viewer. A self-critical “before” can create real transformation tension when the “after” is available, but can simply lower expected value when it is not.
+例如，系列编号对老观众有用，对冷启动观众没有意义。
 
-Let title, spoken opening, first image, and subtitles cooperate on one information line. They do not need to repeat one another, but they should not make four unrelated promises.
+可以用五个问题检查开头：
 
-Use a small promise ledger:
+1. 观众原本期待什么？
+2. 理解第一句话，最少需要什么背景？
+3. 开头让人知道了什么？
+4. 还剩什么具体的问题，让人想看下去？
+5. 正文在哪里回答它？
 
-1. **Entry state:** what the likely viewer already expects.
-2. **Minimum context:** the subject, object, or referent needed to understand the first claim.
-3. **Known X:** what the opening establishes.
-4. **Open Y:** the concrete question or change that gives a reason to continue.
-5. **Payoff:** the moment or sequence that answers Y.
+答不上第 5 题，就改开头，不要夸大正文。
 
-If the body cannot pay off the promise, change the opening rather than exaggerating the body.
+开头可以是结果、判断、问题、不寻常的细节、演示，也可以是故事里的张力。好的悬念让人觉得“我知道 X，想知道 Y”。如果观众连 X 都不知道是什么，那就是困惑，不是好奇。标题、口播开头、第一帧和字幕说的应该是同一件事。不必重复，但不能各许一个愿。
 
-## Give the cover one clear point
+真实返工里见过这些问题：
 
-For a natural talking-head short, a useful starting point is a recognizable topic plus one consequential judgment from the recording. The cover should make the right viewer understand the subject and want the explanation. Choose the hook before polishing the layout; a decorative thumbnail cannot repair an unclear promise. Keep a good original spoken opening rather than automatically moving a dramatic excerpt in front of it.
+- 把最戏剧化的一句挪到开头当冷开场，结果是反钩子，或者出现指代不明的“他／这个”；
+- 强观点没给背景，观众只觉得困惑；
+- 观众还没有理由关心时，先报了工具名、迭代编号；
+- 先预告再从头讲，同样的信息说了两遍。
 
-Use few words, large high-contrast type, and one hierarchy. Two short lines over a real source frame worked well in a user-approved caption-first production; a solid color band can separate a line from a busy background. Omit small badges, credential stacks, secondary slogans, and decorative copy when they dilute that point. Change the layout when the source frame, current brand, or platform crop calls for it.
+## 剪辑：剪到意思清楚为止
 
-For this creator's opinion-led solo shorts, also try a short recognizable topic or question paired with one concrete judgment from the take. The second line must advance the same idea, not function as an unrelated slogan; do not give every word in a long video title equal emphasis. User-supplied three-column cover grids prompted this direction: a clear, natural portrait with room for shoulders or gestures, light high-contrast text treatment, and distinguishable topics across an otherwise consistent series. Try the main text in upper negative space and the supporting judgment over a clear chest area when the source frame allows it; neither the two-line form, exact font, tilt, nor position is mandatory. Inspect small three-column cards as well as the actual destination crop. Detailed judgment belongs to `video-title-and-cover`, `references/cover-production.md`, “单人口播：短话题配一句判断”; the screenshots are a visual reference, not evidence of a causal engagement lift.
+这些可以去掉：
 
-Select expressions before laying out type: compare frames from different moments, inspect promising candidates at full size and around nearby timestamps, and reject blinks, awkward mid-speech mouths, or blur. Preserve a natural, recognizable expression appropriate to the topic; text styling cannot rescue a poor face frame.
+- 预卷和片尾；
+- 废弃的开头；
+- 单独的口头填充；
+- 意外的重复；
+- 无关的岔题；
+- 说错后又说对时的错误版本。
 
-Compose 3:4 Xiaohongshu covers on their own 1080×1440 canvas rather than scaling or cropping a finished 9:16 poster. For this creator, keep essential cover text out of the bottom strip and leave room around a naturally scaled face. Upper negative space or a clear chest area can work with the short-topic-and-judgment treatment above; a middle placement may suit another frame. An earlier check that the title box ended before roughly 80% of canvas height was a starting point, not a required position. Face clearance, copy, and actual feed appearance decide the layout. Change the source frame, subject scale, or text position when they conflict. Inspect the real 3:4 export and the file selected for publishing, not merely the filename or another aspect-ratio preview.
+“出现了两次”不等于该删。先看两遍之间是什么关系：
 
-Judge the exported cover at feed-thumbnail size. If the central idea becomes unreadable, shorten the copy or give it more space before adding effects. Font-size values alone do not establish legibility: in a 1080×1920 ASS composition using Noto Sans CJK SC, the approved run used roughly 190–210 for title sizes and 86 for captions after smaller values rendered too small. Those are renderer-specific starting points, not universal sizing rules. Check the actual glyphs, longest lines, and face clearance.
+| 情况 | 通常怎么处理 |
+| --- | --- |
+| 半句停住，然后重新完整说了一遍 | 删掉废弃的半句和没有意义的等待，保留完整的那一遍 |
+| 口误之后给出了正确说法 | 保留正确的说法，并检查删掉错的以后有没有丢主语或前提 |
+| 同一个观点换个说法再强调、递进或举例 | 保留。意思相近不是删除的理由 |
+| 清嗓、录前准备、录完伸手关机 | 可以剪，注意保住首尾的音节和自然的呼吸 |
+| 两遍各有一部分重要信息 | 不整段丢掉其中一遍；找不改变原意的组合，没把握就都留着 |
 
-The platform cover and opening are separate deliverables. Keep the person moving from the start unless this particular opening calls for a cover frame or hold; see the first-frame guidance in [delivery.md](delivery.md).
+只有完整的意思单元才能调换位置，而且调完以后，主张、确定程度和因果都不能变。一遍过的录音往往只需要清掉头尾和几处重说；乱的录音才谈得上大幅重组。不要把每个停顿都压短，也不要为了凑时长剪掉论证。用户说“后半段重说了”，要找到重说的位置，并确认最后留下的是哪一遍。
 
-## Preserve the speaker's proposition
+剪辑不能做这些：
 
-Editing may remove filler, false starts, repetition, or minor spoken friction. It may move a complete sentence earlier when the meaning and certainty remain the same. It must not:
+- 用字幕补出说话人没说的事实；
+- 把不确定说成确定；
+- 颠倒关系、比较或否定；
+- 把片段拼成他没说过的主张；
+- 在正确说法并不存在时，掩盖前后矛盾。
 
-- add a missing fact through captions;
-- turn uncertainty into certainty;
-- reverse a relationship, comparison, or negation;
-- splice fragments into a claim the speaker never made;
-- disguise a contradiction when the correct fact is not present.
+剪点依据声音定，不依据旧字幕的时间。字幕的一条里可能含着长时间等待、半个相邻的词，或者句尾并不准。实际返工中，按近似时间剪，曾经把相邻的词带进或切掉。
 
-When a fact conflict matters, stop for confirmation. When a visual cannot honestly conceal a semantic problem, leave the thought intact or report the limitation.
+## 画面：让观点被看见
 
-## Decide whether a visual earns its time
+好画面的作用，是让观点更容易懂、记得住。先想清楚它的角色，再选形式：
 
-For each candidate, finish the sentence: “Without this visual, the viewer is likely to misunderstand or miss ___.” If the blank is merely “the video looks less produced,” remove it.
+| 角色 | 什么时候用 | 常见形式 |
+| --- | --- | --- |
+| 定位 | 开题、目录、换章节、长视频的进度 | 开头大字、目录、章节标题、进度条 |
+| 解释 | 结构、步骤、对照、层级、机制、抽象术语 | 逐条出现的列表、关系图、对照表、术语卡 |
+| 展示 | 真实结果、截图、照片、前后对比 | 原始素材，必要时裁切或标注 |
+| 遮挡 | 跳切、甩镜、看不清或有隐私的屏幕 | 重绘界面、全屏卡、画中画 |
+| 强调 | 一个需要被记住的结论 | 那一句换成大字 |
 
-Useful roles include:
+判断该不该加，就把这句话补完：“没有这个画面，观众很可能漏掉或误解____。” 如果只能填“视频显得不够精致”，就不加。
 
-- **Orient:** subject, promise, or chapter change.
-- **Explain:** relationship, sequence, comparison, hierarchy, mechanism, or abstract term.
-- **Reveal:** an actual result, artifact, screen, photo, or before/after.
-- **Protect:** cover a genuine jump cut, whip pan, unreadable screen, or sensitive material without hiding the entire video.
-- **Emphasize:** give one conclusion extra memory value.
+- 画面按“段落”来规划，不按每条字幕规划。一段话在做同一件事，例如把三件事讲完，就用同一个画面持续演变，每说一条亮一条。观众的问题变了，再换新的画面。
+- 画面的出现和变化，要对准已经剪定的时间线上具体的词、短语或停顿。不要在一个词说到一半时切进来。
+- 新画面成为主角时，想清楚旧画面是退场、退到背景，还是因为要对比而留下。失去作用的元素还留在画面里，就成了杂乱。
+- 主画面始终是人。静止、留白、没有图示的一段都是正常的选择，不需要一直动、处处有转场。
+- 证明事实的画面要用真实来源，例如原帖截图、原始数据或用户自己的作品，并在工程里记清出处。通用的 B-roll 只能营造气氛，不能当证据。不要生成假的头像、评论、人数或学习结果。解释机制的示意图要看得出是示意，不能当成现场证据。
+- 截图里的字太密时，可以分区放大或加引导，但原文和数字不改。展示作品、课程成果或产品界面时，选能看出关键内容和完成度的截图，不要只截一个小角。
+- 口播里有事实错误时，先核对来源。只有本期明确同意“口播保留、画面纠正”时，才在那句话出现的地方放一条清楚可读的更正；一期的同意不自动适用于以后。
+- 插入真实证据时，在一句话完整说完的地方插入，回来时接上的那句话要说得通。大场面的关系本身就是证据时，不要为了竖屏把它裁掉。节选要标明是节选，不能暗示画面里没有的连续性或结果。
 
-When a visual is meant to prove a factual claim, preserve its source and reuse status with the project. A saved source frame, exact URL, asset identifier, or user-owned artifact can carry evidence; generic B-roll can set context or mood but should not be presented as proof.
+**手机是真正的画布**
 
-Choose the form after the role:
+- 在手机尺寸、真实导出的帧上看。小而精致的卡片，在手机上常常看不清。
+- 字幕和卡片避开平台界面，也不压住眼睛和嘴。大标题挡脸时，挪到真正的留白里，或者干脆做成全屏卡。
+- 中英混排和 `02 / 03` 这样的编号容易意外折行。
+- 抠像在头发和手边缘不稳定时，退回更简单的平面版式。
 
-- type treatment for a short verbal idea;
-- diagram for a relationship;
-- redrawn interface for an operation;
-- real evidence for a proof claim;
-- PiP or split screen when simultaneous context matters;
-- full-screen card when the viewer needs to inspect the idea rather than the face.
+**真实返工里见过的失败**
 
-Do not make every sentence a card. Natural talking-head stretches provide continuity and make the designed moments matter.
+- 按固定数量配图，结果给本来清楚的段落添了堆砌。
+- 标题、口播、字幕和画面上的字各说一件事，互相抢。
+- 把每条字幕当成一个镜头，元素进进出出，却没有一个稳定的视觉想法。
+- 讲完的面板还挂在画面上，留下残渣。
 
-## Insert real evidence at the spoken reference
+## 封面
 
-When the speaker refers to a post, result, or live experiment and the user supplies the source, show the relevant evidence at that moment. A crop of the actual post can work better than an illustration: retain the title, author, and any data needed to identify what is being claimed, without changing those facts. Keep the caption readable outside the evidence when possible.
+封面单独当作一件编辑工作。
 
-For a requested event excerpt, choose the sequence that demonstrates the point—such as the challenge, the attempt, and the result—rather than filling its duration with procedural explanation. A few chronological excerpts may communicate this more clearly than one continuous stretch. Mark an abridged sequence as an excerpt; keep necessary context and do not imply continuity or an outcome the source does not show. The requested duration is a target for useful evidence, not a quota of silent setup time. Preserve meaningful hesitation while removing dead waiting when it adds nothing.
+- 先想清楚观看理由，再排版。装饰救不了一个不清楚的承诺。
+- 一个主命题，字少、字大、对比高，有一个最先读到的点。不要让一长串标题的每个字都一样醒目。
+- 小徽章、身份堆叠、次要口号会稀释主命题，可以删。
+- 先挑人：在不同时间段多找几帧，放大看，排除眨眼、说话中间的怪嘴型和模糊。表情要自然、像本人，并且符合这期的情绪。字排得再好，也救不了一张不好的脸。
+- 每个目标平台单独排一张，比如小红书用 3:4。缩到信息流卡片大小去判断，不看设计软件里的放大效果。
+- 字号的数值不等于实际显示的大小：同样的数值，不同渲染器显示出来差别很大，以导出的图片为准。
+- 封面和视频的第一帧是两件事。默认片子从一开始就在动，只有当期开头确实需要时才停留在封面帧。
 
-Insert at a complete phrase boundary and return to a sentence that still makes sense. Supporting evidence does not by itself justify rewriting the main take. A wide event scene may belong intact on a vertical canvas if its relationship between speaker and audience is the evidence; do not force a portrait crop that removes that relationship. Keep one subtitle layer and remove the insert's labels and background when returning to the speaker.
+更细的封标判断，交给 `video-title-and-cover`。
 
-## Plan visual beats, not subtitle beats
+## 下一次录制的建议
 
-A visual beat is a stretch with one viewer-facing job, such as orienting the subject, showing proof, explaining a relationship, comparing two states, revealing a mechanism, or landing a conclusion. It may contain one sentence or several. Subtitle segmentation serves reading rhythm; it is not a shot list.
+只在能明显改变下一次录制时给，一到三条就够，因为要记得住。好的建议点明一个动作和它的理由，例如：
 
-When a video needs more than a couple of designed moments, use a lightweight beat sheet before implementation:
+- 先说清要测什么，再说工具名，新观众才知道在测什么；
+- 两个目标用同样的句式说，关系更容易听出来；
+- 抽象的词后面马上举例，观众不用一直揣着一个没解释的概念。
 
-| Beat | Viewer job | Audio anchor | Primary visual | Evidence | Handoff | QA moments |
-|---|---|---|---|---|---|---|
-| Example | Explain how control passes between tools | Named phrase on the locked final timeline | One simple flow | Real screen if useful | Prior panel exits before flow enters | settled frame + boundary burst |
-
-The table is a thinking aid, not a required artifact for a caption-only run. Its purpose is to prevent three common failures: a new element for every sentence, approximate timing that drifts away from speech, and visual residue that accumulates across the frame.
-
-- Anchor an important entrance, change, or exit to a named word, phrase, pause, or evidence moment after the spoken edit is locked. Store the absolute final time or a reproducible anchor-plus-offset, not an unexplained number.
-- Prefer evolving the current visual when the viewer is still doing the same cognitive task. Introduce a new subject when the task changes.
-- At a handoff, choose deliberately: the old subject exits, recedes, or remains because the new point compares against it. A leftover element with no continuing role is clutter.
-- A pivot sentence can open the next visual beat when it genuinely changes the viewer's question; it does not automatically belong to the previous scene just because it is grammatically attached to it.
-- A-roll remains the default continuity. It does not need perpetual camera drift, idle motion, a sound effect, or a designed transition to prove that editing happened.
-
-## Treat mobile composition as the real canvas
-
-- Test at phone size and on real encoded frames.
-- Keep essential type away from the right-side action rail and bottom platform controls.
-- Keep subtitles short enough to read in one glance; a single line is a useful default, not a law.
-- Do not place a large opening card across the eyes or mouth. Move it above, change the frame, or deliberately use a full-screen chapter treatment.
-- Avoid tiny “dashboard” typography that only looks refined in a desktop editor.
-- Check mixed-language line breaks and number labels such as `02 / 03`; browser wrapping can create failures that design bounds miss.
-- Attach a graphic entrance to a pause, phrase, or intended beat; a scene that begins in the middle of a spoken word will feel like a broken edit even when its animation is smooth.
-- If foreground segmentation leaves unstable hair, hand, or shoulder mattes, downgrade to foreground type, a side layout, or a full-screen card. Do not force a broken depth effect.
-
-## Derive next-time advice from this take
-
-Give advice only when it changes the next recording in a noticeable way. One to three items are usually enough because they must be remembered.
-
-Good advice names an action and its reason:
-
-- “State the experiment before naming the tool, so a new viewer knows what is being tested.”
-- “Use the same grammatical shape for the two goals, so their relationship is easier to hear.”
-- “Give the example immediately after the abstract term, so the viewer does not carry an undefined concept.”
-
-Avoid scoring the performance, rewriting a full script, or asking for pickup lines. This flow completes the current video and uses the recording to improve the next one.
-
-## Failure modes observed in real runs
-
-- Choosing the most dramatic excerpt as a cold open produced an anti-hook or a dangling pronoun.
-- Adding a `HIGHLIGHT` label or transition did not repair an excerpt whose value prediction was wrong.
-- A strong claim without enough context created confusion rather than curiosity.
-- Tool names and iteration numbers appeared before the viewer had a reason to care.
-- A preview-then-restart structure repeated information and charged a transition tax.
-- Fixed illustration quotas added slop to already-clear passages.
-- Small elegant cards became unreadable on a phone.
-- A large title obscured the speaker's face; moving it into real negative space solved the problem.
-- Title, spoken hook, burned subtitles, and graphic captions competed as separate messages.
-- An unstable person cutout failed around hair and moving hands; a simpler flat layout looked more intentional.
-- Treating subtitle sentences as shot boundaries produced too many entrances and no stable visual thought.
-- Letting old panels linger after their explanation ended created visual residue even when each element looked acceptable alone.
+不打分，不重写整篇稿子，不要求补录。

@@ -1,165 +1,100 @@
-# Delivery and quality control
+# 交付：技术上容易出错的地方
 
-Use this reference for ingest, transcription, render preparation, final encoding, and handoff.
+转写、剪辑点、颜色、声音、字幕时间和成片验收时读。这里只记真实出过错、而且不容易自己想到的地方。工具不限，下面提到的都只是用过的实现。
 
-## Confirm the available local stack
+## 工具
 
-Before a long run, check the actual environment for a media probe and encoder, the available local ASR and aligner, a color-managed macOS conversion path when relevant, fonts, and the selected composition renderer. Record the important versions in the run notes. Reuse a proven project-local implementation when it matches the source rather than retyping a complex media pipeline from memory.
+开始前，先看当前环境里实际有哪些工具：媒体探测和编码、本地语音识别和逐字对齐、颜色转换、字体、渲染方式。项目里已有能用的实现时直接复用，不要凭记忆重写一整套。
 
-For a caption-first run, FFmpeg plus an editable ASS track can handle rotation, subtitles, opening type, screenshots, and simple event inserts without a motion-design framework. A tested Apple Silicon stack used `mlx-qwen3-asr` with Qwen3-ASR-1.7B, Qwen3-ForcedAligner-0.6B, `--timestamps`, and JSON output; locally cached models can run offline. Apple `avconvert` with `Preset1920x1080` supplied the reviewed SDR intermediate for that source. Check installed CLI help and the resulting color and dimensions before reusing this path; it is a concrete adapter, not a mandatory dependency or universal preset.
+- FFmpeg 加一条可编辑的 ASS 轨，已经足够完成旋转、字幕、大字、截图、图示、目录和进度条，不一定需要动效框架。HyperFrames 之类的工具可选，要在内容决定好以后才用；用它时先读它自己的 skill。
+- 用过的本地识别方案：Apple Silicon 上的 `mlx-qwen3-asr`（Qwen3-ASR-1.7B）配 Qwen3-ForcedAligner，可以离线运行。本地没有可用的识别时，换另一种本地方案，或者说明缺了什么；不要悄悄传给云端服务。
+- 在本机跑模型时控制内存：一次只跑一个模型任务，长音频切段处理。
 
-If the preferred local ASR is unavailable, find another local adapter or report the dependency; do not silently send the recording to a cloud transcription service. If the preferred Apple color path fails, a tested FFmpeg tone-map may be used with stricter frame comparison. If there is no compatible audio track, stop instead of delivering silent or corrupt media.
+## 先看清原片
 
-## Inspect before transforming
+- 记下所有音视频轨、编码、位深、色彩参数、旋转、HDR 或杜比视界信息、元数据和数据轨。
+- 不能只读参数，要实际看画面：做一张覆盖全片的缩略图拼板，看开头、屏幕、结尾。
+- 竖拍的素材可能以横着的像素存储，又没有可用的旋转标记。先目视确认方向，再真正旋转像素；不要居中裁切，也不要只加一个旋转标记。
 
-Record at least:
+## 转写和校对
 
-- source path, size, duration, frame rate, encoded and displayed dimensions, and rotation;
-- video codec, bit depth, color primaries, transfer, matrix, range, HDR or Dolby Vision side data;
-- all audio tracks, default disposition, sample rate, channels, loudness, and true peak;
-- chapters, timed metadata, location, device, creation time, and data tracks;
-- decode errors, black or frozen intervals, opening and tail room, and visible sensitive content.
+- 原始识别结果连同时间一起保留；校对写在另一层，校对不能悄悄改写说话人的话。重点核对人名、产品名、中英混说、数字和否定词。
+- 长窗口识别可能悄悄漏掉整段话。一次返工中，180 秒一窗的识别漏了约 15 秒，按停顿切成 60 秒以内的小窗才补回来。所以要核对全文覆盖：拿识别出的文字时长和实际说话段比一比。
+- 有疑问的地方，把那几秒单独截出来重新识别，在带提示和不带提示两种情况下比较，再按上下文定。模型比对和看波形都不等于人耳听过，汇报时不要写成“已听过”。
+- 自动校对报告“改了 0 处”，不能证明稿子干净，可能是校对没有真正生效。
 
-Generate a contact sheet across the full recording and inspect likely openings, transitions, screens, and endings. Technical metadata does not replace looking at the footage.
+## 剪辑点和音画同步
 
-A portrait take can be stored as sideways landscape pixels with no useful rotation tag. Confirm the orientation visually, then rotate the pixels into the intended display orientation before considering a crop. Do not center-crop a sideways frame or merely attach another rotation tag. This is distinct from a genuinely horizontal event insert whose full-width context may need to remain visible on the vertical canvas.
+- 剪点依据声音定，落在两个词之间最安静的位置，并按帧对齐。
+- 保留段用左闭右开的区间记录，写明是原片时间还是标准化后的时间。可变帧率的素材先转成固定帧率并记下时间对照；原片里音视频起点本来就有偏差时，要保留并正确换算。段内的时间换算是：成片时间 ＝ 本段在成片里的起点 ＋（原片时间 − 本段在原片里的起点）。这个公式只在同一段里成立。
+- 音频和视频要从同一个位置剪。一次返工中，某段的剪点时间做了四舍五入，结果视频起点比音频晚了一帧，这一段之后的声音整体慢了 33 毫秒。
+- 成片做好后，在每个剪辑点前后抽查音画是否对齐，例如把成片的声音和处理好的音轨对一下。
 
-## Transcribe locally and preserve timing evidence
+## 颜色
 
-Default to a local Chinese ASR model with word-level alignment. Keep the raw ASR output alongside a corrected transcript; corrections should repair recognition and punctuation without silently rewriting the speaker.
+iPhone 竖拍可能是 HEVC 10 位、BT.2020 HLG，外加杜比视界。只把编码换成 H.264，或者只改色彩标签，会让肤色发灰、高光溢出或整体过亮。
 
-Review:
+- 用经过实测的、有色彩管理的转换方法。macOS 上，Apple 自带的转换通常比通用的色调映射更接近原片。FFmpeg 的 `zscale` 加色调映射可以作为备选，但它一般只处理 HDR 基础层。
+- 在实际导出的帧上，对比开头、肤色、白衣服、窗户和高光。
+- 输出时写明 Rec.709 的原色、传递函数、矩阵和色彩范围，去掉残留的 HDR 信息。全范围的源（例如 `yuvj420p`）要转成有限范围。
 
-- proper nouns, product names, English words inside Chinese speech, numbers, and negation;
-- the exact audio at every proposed cut boundary;
-- monotonic timestamps and source-duration bounds;
-- captions after retiming, not only before editing.
+## 声音
 
-ASR is an adapter, not an architectural dependency. If a different local model is more accurate or already available, use it while preserving the same evidence and outputs.
+- 明确选用能兼容的那条音轨。iPhone 文件可能另带一条空间音频，常见的 FFmpeg 解不了。没有可用音轨时停下来说明，不交付无声或损坏的成片。
+- 响度在最终导出的文件上测。单声道复制成双声道以后，测出来的响度会高约 3 LU，有一次正是这样多出了 3 dB。社交平台的响度大致在 −18 到 −14 LUFS，峰值要受控；如果峰值已经接近 0 dBFS，先压缩或限幅，再提高响度。
+- 风噪、路噪这类不稳定的噪声，频谱降噪常常没有用，甚至更糟。先切掉低频，再看说话段和停顿段改动前后的电平，确认有效再用。改动不能伤到人声。
+- 检查左右声道是否平衡、硬剪处有没有咔声或被切掉的辅音、开头和结尾是否对齐。
 
-Use an existing SRT to locate source material, then refine actual cut points from the sound. A cue can include a long wait, part of a neighboring word, or an imprecise sentence ending. Compare local alignment with the waveform and listen at the boundary when audio playback is available; neither an old SRT nor a second ASR pass is infallible. A supported correction may move the cut slightly outside the old cue while preserving the whole spoken word. Quantize carefully to output frames, record the actual retained intervals, and recheck the assembled excerpt for stray leading/trailing words and clipped endings. Do not describe model comparison or waveform inspection as human listening.
+## 字幕时间
 
-## Convert color, do not relabel it
+- 逐字对齐里会出现时长为零的字，要把它们并进有正时长的短语字幕里，并核对全文覆盖、先后顺序和时长边界。
+- 剪辑后重新对时：一条字幕的开始和结束，必须落在同一段保留下来的原片里。否则一条普通字幕可能在屏幕上挂几十秒。
+- 字幕不能跨过剪辑点，也不能短到一闪而过。
+- 插入节选时，先确定它导出后的实际时长，再整体推后后面的字幕。所有插入和回接共用一份原片到成片的时间对照。
+- 字号的数值不等于屏幕上字的大小。以 libass 为例，字号包含了字体的上下伸部，同样一个数值，汉字实际显示可能只有七成大小。所以要按导出画面上的实际字宽来断句和定字号。
+- 在 ASS 里，用 `\pos` 或 `\move` 定了位置的字幕，不受样式边距影响；改了边距以后，要检查这些字幕实际移到了哪里。
+- 显示字幕和平台上传的字幕轨用同一份。平台字幕轨是给无障碍和搜索用的，打开以后和画面上的字幕重复是正常的。
 
-iPhone portrait sources may be HEVC Main 10, BT.2020 HLG, and Dolby Vision Profile 8 even when the desired delivery is ordinary SDR. A renderer that merely emits H.264 or changes tags can leave skin washed out, highlights clipped, or the whole image too bright.
+## 版式和时间上的检查
 
-- Prefer a color-managed conversion that has been tested on representative frames. On macOS, AVFoundation or another Apple color-managed path may reproduce iPhone material better than a generic tone-map.
-- A carefully configured FFmpeg `zscale` plus tone-map path can be a fallback, but it typically works from the HDR base layer rather than fully applying Dolby Vision RPU behavior.
-- Compare opening, skin, white clothing, windows, and specular highlights against the source on actual rendered frames.
-- Output explicit Rec.709 primaries, transfer, matrix, and range; remove stale HDR side data.
+- 字幕放不下时，先减字或合理换行，不靠缩小字号挤进去；截图、网址和引导语单独留位置，不和字幕抢。
+- 字幕和图示要避开目标平台的界面。可以把账号、多行文案、话题、右侧按钮、顶部标签画成一张示意图，叠在导出的成片上看，示意图不进成片。至少要检查文案收起时的正常状态。界面一改，就重新看一次。
+- 人脸位置变化大的片子，可以做人脸追踪，再据此给字幕和画面避让。不要只凭一帧方便的截图判断。
+- 看一看最长、最宽的字幕和两行字幕在实际画面里的样子，以及第一条和最后一条字幕。
+- 只看一张截图，看不出闪烁、出场太早、残留一帧这类问题。按风险抽查这些时刻：每个重要画面停稳时、它出现和离开前后、每个剪辑点和场景变化的两侧，动得快的地方连续抽几帧。
 
-There is no universal tone-map preset. The acceptance test is the encoded picture, not the command string.
+## 封面文件
 
-## Handle camera audio deliberately
+- 每个平台的比例单独一张，例如竖版和小红书 3:4，文件名标明是哪个平台。核对实际尺寸，也核对上传时选中的到底是哪个文件。
+- 片子默认从第一帧就在动。只有用户明确要一帧封面时，才插入恰好一帧，并检查第 0 帧和第 1 帧。
 
-Explicitly map the compatible default AAC track rather than every audio stream; iPhone files can contain an additional spatial audio track that common FFmpeg builds cannot decode.
+## 隐私和元数据
 
-Measure the edited program before normalization. If true peaks are already near 0 dBFS, compression or limiting must create headroom before raising integrated loudness. A social delivery around -18 to -14 LUFS with controlled true peak is a useful neighborhood, not a mandatory target independent of the material.
+- 只带上要发布的那条视频轨和那条音轨。
+- 去掉数据轨、章节、全局和单轨元数据、设备和软件标签、GPS、拍摄时间。
+- 看画面里的屏幕、通知、证件、二维码、家人和能读出来的背景文字，只对真正有风险的部分做裁切、打码或重绘。
+- 不要把原机文件直接上传。
 
-Check:
+## 最终文件验收
 
-- left/right balance and channel choice;
-- clicks or truncated consonants at hard cuts;
-- A/V start time, end time, and drift;
-- loudness and true peak on the final encode.
+对导出的那个文件本身确认这些：
 
-## Make captions for viewing, not transcription storage
+1. 从头到尾解码，没有报错。
+2. 容器、视频和音频都从 0 开始，结束时间一致，误差不超过一帧。
+3. 画面比例、分辨率和帧率符合目标平台，例如竖屏 1080×1920。编码是 H.264 加 AAC 48 kHz，色彩是 SDR Rec.709。
+4. 没有意外的黑屏开头、黑屏结尾、冻帧、残留的旋转或 HDR 信息，也没有多余的音轨或数据轨。
+5. 响度、峰值、声道平衡和剪辑点都没有问题。
+6. 字幕全对、对时准确，在平台界面之上可读，没有卡住或重复。
+7. 每个图示都在讲它该讲的内容，不挡脸，不碰平台界面。
+8. 没有敏感的元数据或画面里的隐私信息。
+9. 开头、中段、每个画面转换和结尾都看过；容易出时间问题的地方，有连续帧作为证据。
 
-Segment by short semantic unit and natural breath. Keep enough context to understand the line while avoiding dense two-line paragraphs. Correct mixed Chinese/English spacing and names. Use one visible subtitle system in the frame; platform subtitle tracks may still be uploaded for accessibility and search.
+渲染命令成功、平台的预览画面、一张拼板，都不能单独算作验收。工程目录里留一份简短的验收记录，写测到的数值和支撑判断的那几帧。
 
-Do not burn raw fixed-character ASR line breaks into the video. Write display cues by phrase, preserving names and English terms as units. Keep raw alignment separate from editorial display corrections so a repaired word or omitted filler does not lose its timing evidence. Zero-duration character tokens can occur in forced alignment; group them into positive-duration phrase cues and validate complete text coverage, ordering, and source bounds.
+平台因为时长、比例、编码或分类拒收时，不要为了凑条件悄悄剪掉内容。说明平台的实际限制，给出可选的办法：和用户一起改剪辑、换一种平台支持的形式，或者暂缓发这个平台。
 
-When retiming through cuts, bind a cue's start and end to the same retained source segment. A boundary lookup that maps the start to one segment and the end to another can turn a normal cue into a subtitle that remains on screen for tens of seconds.
+## 交付目录
 
-When adding an excerpt, lock its actual encoded duration before shifting subsequent main-take cues. Either map the excerpt's word times through its source intervals or align its assembled audio anew. Clip boundary cues to their own retained interval so text does not bleed into the next scene. Keep one source-to-final map for all inserts and returns.
+沿用项目已有的目录结构，大文件不复制两份。成片、SRT、封面、`发布文案.txt` 放在项目根目录。工程放在已有的 `工程/` 或同类目录里，包括来源记录、逐字对齐、剪辑决定、时间对照、重新渲染的脚本和简短的验收记录。
 
-### Place captions above the platform interface
-
-For this creator's Douyin and Xiaohongshu talking-head shorts, use the lower-middle picture as the caption area. Bottom-aligned desktop subtitles are not a good default: usernames, descriptions, topics, music labels, navigation, and right-side action buttons occupy that space.
-
-For a 1080×1920 master, start by fitting the **whole visible caption box**, including the second line, stroke, and shadow, around 60–72% of frame height (roughly y=1150–1380). Initially leave the bottom quarter free of essential text and keep the right action rail clear. These are conservative editorial starting points for this creator, not official shared platform specifications. Actual app layout, device ratio, description length, product/activity cards, and subject position take precedence. Do not push captions over the eyes or mouth; adjust the composition or use a checked per-scene position when the default conflicts with the speaker or proof asset.
-
-Set layout against the final encoded canvas. In ASS, verify alignment and any per-cue `\pos` / `\move` overrides as well as `MarginV`; changing a style margin will not move a cue with an explicit position. Prefer fewer words per cue or a sensible line break over shrinking the type to squeeze around platform controls. Give screenshots, URLs, and CTA labels their own space so they do not compete with the raised captions.
-
-Before delivery, inspect the longest one- and two-line captions, a normal talking-head frame, and a screenshot/CTA scene inside a current target-platform playback view or a clearly labeled UI approximation. Include the username, a representative multi-line description, topic/activity labels, and right-side actions; a blank phone bezel is not this check. Keep text readable in the normal collapsed-description state, and inspect any other state central to the intended placement. Recheck the current UI when the platform or format changes; the expanded comments or description panel may intentionally cover the picture and cannot be solved by a universal safe rectangle. Keep the UI simulation out of the delivered video.
-
-Inspect captions in the encoded MP4 at:
-
-- cut boundaries;
-- full-screen graphics and PiP scenes;
-- the widest and longest lines;
-- the lower-middle caption area with target-platform UI overlaid;
-- the first and last cues.
-
-## Verify time-dependent design in time
-
-A contact sheet is good at hierarchy and coverage but weak at diagnosing short-lived annotations, easing, flicker, a mask that trails its target, or an element that survives one frame too long. When the composition contains timed graphics, moving PiP, dynamic privacy treatment, or layout changes, add temporal evidence proportional to the risk:
-
-- inspect a settled frame for each important visual beat, not only its entrance midpoint;
-- inspect a short consecutive-frame burst around fast annotations, movement, or a suspected flicker;
-- inspect immediately before, during, and after every materially changed scene or mask boundary;
-- derive the face/head exclusion area from representative positions across the affected interval, or from tracking when movement is substantial, rather than trusting one convenient frame;
-- for a user-reported timecode, retain the same-timecode before/after/final comparison until the encoded delivery passes.
-
-The goal is not maximum frame extraction. Choose samples that can reveal the failure in question. A stable subtitle-only stretch does not need the same evidence as a moving screen mask or a panel crossing a face.
-
-If a beat sheet or storyboard exists, compare it with the encoded video as well as inspecting the pixels: important proof and explanatory roles should not have silently disappeared, and any added visual should have a defensible role rather than being unplanned decoration.
-
-## Separate the platform cover from the opening
-
-A 3:4 Xiaohongshu cover is a standalone image, while the portrait video can remain 9:16. Recompose the image for its destination and label each output by platform or aspect ratio. Verify the dimensions and the exact file referenced by the preview and upload form; generating a correct 3:4 file does not help if the default cover path still selects 9:16.
-
-Keep a natural take moving immediately by default. A cover frame or hold is a separate editorial choice, not a consequence of needing a thumbnail. If the user requests a one-frame cover, insert exactly one encoded frame using the video's own aspect ratio and verify frame zero and frame one. Otherwise do not force the standalone cover into the video. Inspect the final opening for unintended frozen or black frames.
-
-## Remove private and incompatible material
-
-For a public delivery:
-
-- explicitly map only the intended video and audio streams;
-- drop camera data tracks, chapters, global and stream metadata, device and software labels, GPS, and creation timestamps unless deliberately retained;
-- inspect filmed screens, notifications, certificates, QR codes, family material, and readable background text;
-- preserve public proof while cropping, masking, blurring, or redrawing only what creates a real risk.
-
-Do not upload the original phone MOV as a shortcut.
-
-## Final QA
-
-Before handoff or upload, verify the final file itself:
-
-1. Decode completes without errors.
-2. Container, video, and audio start at zero and end together within a harmless frame tolerance.
-3. Display is 9:16, typically 1080×1920 at a stable delivery frame rate, H.264 plus AAC 48 kHz, and SDR Rec.709 when intended.
-4. No accidental black opening, black tail, freeze, stale rotation, HDR side data, extra audio, or data streams remain.
-5. Loudness, peaks, channel balance, and cut joins are acceptable.
-6. The standalone cover has the destination ratio, a natural expression, a balanced feed-size layout, and the correct preview/upload file; frame zero follows the chosen opening without an unintended hold.
-7. Captions are correct, retimed, readable above the target platform UI, and never stuck or duplicated; long and two-line cues have been checked in context.
-8. Graphics explain what they claim to explain, do not hide the face unintentionally, and stay inside platform-safe zones.
-9. Sensitive metadata and visible private information are absent.
-10. Representative opening, middle, graphic transitions, and ending frames have been visually inspected; time-dependent risks have adjacent-frame or short-interval evidence.
-
-A renderer's success code, a Studio preview, or a single contact sheet is not enough on its own. When one sampled frame suggests a crop, obstruction, or transition failure, inspect adjacent frames before diagnosing the whole scene. Keep a compact QA report with measured facts and the frames that support the visual judgment.
-
-If the intended platform rejects the final duration, aspect, codec, or classification, do not silently cut meaning to satisfy it. Report the live constraint and offer the honest options: revise the edit with the user, publish in another supported format, or postpone that destination.
-
-## Adaptable artifact contract
-
-Default to handing off the finished video, matching corrected SRT, required cover and `发布文案.txt` directly. The copy is prepared under [publication-copy.md](publication-copy.md), even when a human operator will publish. Use the video file, an existing player, or a few relevant frames for inspection; do not build a review/comparison website or start a local web server unless the user explicitly asks for that form. Detailed cut reports and derivative posts are also opt-in; necessary timeline and QA evidence stays internal.
-
-Reuse the owning project’s layout. A simple layout is sufficient:
-
-```text
-project/
-  *.ready-to-upload.mp4
-  *.cover.jpg              # when required by the current task
-  *.srt
-  发布文案.txt             # final platform copy + separate operator notes
-  work/                    # reuse an existing 工程/ or equivalent
-                           # necessary sources/provenance, alignment,
-                           # edit map, render recipe, and compact QA
-```
-
-Do not duplicate multi-gigabyte media merely to satisfy this shape. Keep a single owning copy or a clearly documented, verified derivative.
-
-Identify one authoritative release file per publication unit. Label full archive masters separately from independently publishable parts and map each part to its own copy. Reuse the existing project layout; for a batch, a compact inventory under [publishing.md](publishing.md) is enough for a human handoff.
-
-When a book or product recommendation belongs in the video, add the asset/CTA choice and platform product-card mapping described in [product-recommendations.md](product-recommendations.md). A finished local video and a verified purchase attachment are separate delivery states; record each accurately.
+每个发布单元只认一个成片文件。完整母版要另外标明“仅归档”，分集各配各自的文案。口播里涉及书或商品时，商品卡怎么挂，见 [product-recommendations.md](product-recommendations.md)。本地成片做好，和商品真的挂上，是两种不同的状态，要分别记录。
