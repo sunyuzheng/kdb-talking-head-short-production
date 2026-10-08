@@ -1,6 +1,6 @@
 # 单人口播：剪辑、字幕、画面、封面与发布文案
 
-把自然录下的一段话（长短都可以），做成能直接交给运营发布的成片：只剪明显说错和重复，精校并烧录字幕，加帮助观众理解和记住观点的画面。默认一起交付 **MP4、精校 SRT、封面和 `发布文案.txt`**。
+拿到一段录好的单人口播原片（长短都可以），剪成适合全平台发布的成片：只剪明显说错和重复，精校并烧录字幕，加帮助观众理解和记住观点的画面。默认一起交付 **MP4、精校 SRT、9:16 和 3:4 封面、各平台的 `发布文案.txt`**。上传和排期不在这份 Skill 里，由发布的人负责。
 
 Skill 只写“什么算做好”和真正不能越过的边界，怎么做由执行的 Agent 按当期素材判断；过去发过的成片只是例子，不是标准。
 
@@ -12,19 +12,19 @@ Skill 只写“什么算做好”和真正不能越过的边界，怎么做由�
 
 ```text
 使用 $kdb-talking-head-short-production，只补这条成片的发布文案。
-读取最终字幕和已有标题／封面，目标是 YouTube 和 Instagram。
-按本期内容放合适的链接；输出发布文案.txt，正文能直接复制。
-账号、使用哪个成片和已发布状态单独写进运营说明；没核验的不要猜。
-这次不重新剪辑，也不上传。
+读取最终字幕和已有标题／封面，按全平台准备（YouTube、Instagram、小红书、抖音、视频号）。
+按本期内容放合适的链接；输出发布文案.txt，每个平台的正文都能直接复制。
+没核实的链接和权益写在文件开头的说明里，不要猜。
+这次不重新剪辑。
 ```
 
-也可以让已有的 Agent 直接阅读 [publication-copy.md](references/publication-copy.md)，再用 [发布文案模板.txt](templates/发布文案模板.txt) 填写，不必为了补文案安装剪辑软件。上传、排期、批量交接看 [publishing.md](references/publishing.md)。
+也可以让已有的 Agent 直接阅读 [publication-copy.md](references/publication-copy.md)，再用 [发布文案模板.txt](templates/发布文案模板.txt) 填写，不必为了补文案安装剪辑软件。
 
 **完整制作**：
 
 ```text
 使用 $kdb-talking-head-short-production 处理这条单人口播。
-一起交付成片、SRT、封面和发布文案.txt；先完成本地交付，不上传。
+一起交付成片、SRT、封面和发布文案.txt。
 ```
 
 剪多少、字幕放哪里、加什么画面，都由 Agent 按 Skill 里的标准自己判断，不需要在提示里逐条交代。
@@ -53,10 +53,6 @@ git -C ~/.codex/skills/kdb-talking-head-short-production pull --ff-only
 
 统一管理 Skills 的环境，也可克隆到自己的仓库目录，再让运行时指向这一份来源。只需要人工使用文案方法时，直接下载参考文件即可。
 
-## 云端流程
-
-准备做 iCloud 收件与云端 bot 时，读 [CLOUD_FLOW.md](CLOUD_FLOW.md)。它只写云端特有的接收、任务记录、平台适配、防重复与恢复，制作标准仍以本 Skill 为准；它**不代表这些服务已经部署**。
-
 ## 文件地图
 
 | 文件 | 用途 |
@@ -64,14 +60,11 @@ git -C ~/.codex/skills/kdb-talking-head-short-production pull --ff-only
 | [SKILL.md](SKILL.md) | Agent 主入口：交付什么、什么算做好、边界、按需读什么 |
 | [references/editorial.md](references/editorial.md) | 开头、剪辑、画面、封面怎么判断，以及真实返工中的失败 |
 | [references/delivery.md](references/delivery.md) | 转写、剪辑点、颜色、声音、字幕时间与成片验收里容易出错的地方 |
-| [references/publication-copy.md](references/publication-copy.md) | 独立可用的发布文案方法 |
+| [references/publication-copy.md](references/publication-copy.md) | 各平台发布文案怎么写，也可以单独使用 |
 | [templates/发布文案模板.txt](templates/发布文案模板.txt) | 可复制的交付容器 |
-| [references/publishing.md](references/publishing.md) | 分发、对账与运营交接 |
-| [references/youtube-shorts.md](references/youtube-shorts.md) | YouTube 上传与核验 |
-| [references/product-recommendations.md](references/product-recommendations.md) | 书／商品与实际挂载 |
+| [references/product-recommendations.md](references/product-recommendations.md) | 口播提到书或商品时，素材和购买引导怎么准备 |
 | [references/creator-profile.md](references/creator-profile.md) | 可替换的个人偏好与公开入口 |
 | [references/sources.md](references/sources.md) | 来源与真实返工 |
-| [CLOUD_FLOW.md](CLOUD_FLOW.md) | 云端迁移说明 |
 
 不包含原始视频、私密转写、私人路径、账号凭证、Cookie 或平台登录态。多人访谈与长视频内容资产（文章、高光等）可使用 [lizheng-video-production](https://github.com/sunyuzheng/lizheng-video-production)；独立标题封面能力有更细的编辑与成图指导。
 

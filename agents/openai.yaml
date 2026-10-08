@@ -1,4 +1,4 @@
 interface:
   display_name: "KDB Talking-Head Production"
-  short_description: "把单人口播剪成成片：轻剪、精校字幕、帮助理解的画面、封面与发布文案"
-  default_prompt: "Use $kdb-talking-head-short-production to turn this solo talking-head recording into a finished video with corrected burned-in captions, visuals that help viewers understand, a cover and 发布文案.txt. Cut only clear mistakes and repetition. If the video is already finished and I only need publication copy, work from the final transcript without re-editing or uploading."
+  short_description: "把单人口播原片剪成适合全平台发布的成片，封面和各平台发布文案一起做好"
+  default_prompt: "Use $kdb-talking-head-short-production to turn this solo talking-head recording into a finished video that works on every major platform, with corrected burned-in captions, visuals that help viewers understand, 9:16 and 3:4 covers and 发布文案.txt for each platform. Cut only clear mistakes and repetition. If the video is already finished and I only need publication copy, work from the final transcript without re-editing. This skill does not upload or schedule."
